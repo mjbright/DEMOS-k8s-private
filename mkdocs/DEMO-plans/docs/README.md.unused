@@ -1,0 +1,110 @@
+---
+title: "Kubernetes Demos"
+lang: en
+meta:
+ - attribute: keywords
+   value: Kubernetes
+#css:
+ #- https://url/to/style.css
+#js:
+ #- https://url/to/script.js
+# NOTE: can be displayed on mac using easymd
+# NOTE: easymd doesn't support links !!
+---
+
+# == LFS458 Demos: ==
+
+## Module1: Introduction -> ??
+
+Module Content:
+- IN CASE: Containers, Container Engines, Images
+- IT Trends, Container Orchestration, Kubernetes Features, Certification
+
+?? Google Microservices demo
+or NO demo
+
+## Module2: Kubernetes 101
+
+Module Content: Core Concepts
+- Desired State, Loose Coupling, Pods, M-container/kernel namespaces, Pod Creation, kubectl run/create/apply
+- Controllers, Services, Namespaces, Networking
+
+DEMOS:
+- desired state ?
+- Pods (multi-container, kernel namespaces)
+- Creation: imperative, declarative
+- Deployment, curl to Pods
+- Service, curl to Service (scale up/down)
+- Loose coupling (after Pods, Deployments): isolate a Pod
+
+My federated demos => simplified Google Microservices? or Dronestore ?
+
+Or basic Pod demos, Deployments, Services ...
+
+## Module3: Installation & Configuration
+
+Demonstrate major steps (scripted !!)
+
+## Module4: Kubernetes Architecture
+
+
+## Module5: APIs & Access
+
+
+## Module6: API Objects
+
+## Module7: Managing State with Deployments
+
+
+
+## Module8: Volumes & Data
+
+## Module9: Services
+
+
+## Module10: Helm
+
+
+## Module11: Ingress
+
+
+## Module12: Scheduling
+
+
+## Module13: Logging & Troubleshooting
+
+
+## Module14: Custom Resource Definition: CRDs
+
+DEMOS:
+- Example CRDs (in DEMOS folder)
+- Full CRD + Controller example:
+  https://medium.com/@muppedaanvesh/a-hand-on-guide-to-kubernetes-custom-resource-definitions-crds-with-a-practical-example-%EF%B8%8F-84094861e90b
+
+
+## Module15: Security
+
+
+## Module16: High Availability
+
+## == LFD459 Demos: ==
+
+## Module1: 
+
+## Module2: 
+
+## Module3: 
+
+## Module4: 
+
+## Module5: 
+
+## Module6: 
+
+## Module7: 
+
+## Module8: 
+
+## Module9: 
+
+

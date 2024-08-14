@@ -1,0 +1,20 @@
+
+FROM scratch
+
+WORKDIR /app
+
+ADD ./demo-binary /app
+
+ADD static/css /app/static/css
+ADD static/img /app/static/img
+ADD static/index.html /app/static/index.html
+
+ENV IMAGE_NAME_VERSION="mjbright/docker-demo:1"
+ENV IMAGE_VERSION="1"
+ENV PICTURE_PATH_BASE="static/img/docker_blue"
+ENV PICTURE_COLOUR="blue"
+
+EXPOSE 80
+
+CMD ["/app/demo-binary","--listen",":80","-l","0","-r","0"]
+

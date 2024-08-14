@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  key: bored-yet ???
+  key2: mike-was-here !!!
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-01-27T13:12:14Z"
+  name: cm4
+  namespace: default
+  resourceVersion: "318487"
+  uid: 28695590-55cb-4c93-901e-3e94206b5d85

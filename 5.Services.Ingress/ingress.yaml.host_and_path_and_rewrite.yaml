@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mjbright-ingress
+  namespace: default
+
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
+spec:
+  ingressClassName: nginx
+
+  rules:
+
+  - host: t-kube-1.mjbright.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: quiz
+            port:
+              number: 80
+        path: /quiz(/|$)(.*)
+        pathType: ImplementationSpecific
+
+  - host: t-kube-1.mjbright.click
+    http:
+      paths:
+      - backend:
+          service:
+            name: vote
+            port:
+              number: 80
+        path: /vote(/|$)(.*)
+        pathType: ImplementationSpecific
+
+  - host: t-kube-1.mjbright.click
+    http:
+      paths:
+      - backend:
+          service:
+            #name: web
+            name: web
+            port:
+              number: 80
+        path: /web(/|$)(.*)
+        pathType: ImplementationSpecific
+

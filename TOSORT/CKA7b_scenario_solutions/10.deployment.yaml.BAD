@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app:   webserv
+    owner: mike
+  name: webserv
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webserv
+  template:
+    metadata:
+      labels:
+        app: webserv
+    spec:
+      initContainers:
+      - image: alpine:latest
+        name:  init1
+        command: ['/bin/sh','-c','wget -qO - https://google.com/']
+      - image: alpine:latest
+        name:  init2
+        command: ['/bin/sh','-c','touch /tmp/ready; touch /tmp/live']
+      containers:
+      - image: nginx:1.18
+        name: webserv
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/ready
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/live
+          initialDelaySeconds: 5
+          periodSeconds: 5

@@ -1,0 +1,746 @@
+tar xf LFD459_V1.22.1-u1_SOLUTIONS.tar.xz 
+cp -a LFD459/SOLUTIONS/s_02/k8scp.sh .
+./k8scp.sh |& tee k8scp.sh.op
+kubectl get no
+kubectl delete node ip-172-31-7-127
+kubectl get no
+vi ~/.bashrc
+. ~/.bashrc 
+vi ~/.bashrc 
+set -o vi
+. ~/.bashrc 
+vi ~/.bashrc 
+. ~/.bashrc 
+export PS1='> '
+. ~/.bashrc 
+vi ~/.bashrc 
+. ~/.bashrc 
+vi ~/.bashrc 
+. ~/.bashrc 
+vi ~/.bashrc 
+set -o vi
+. ~/.bashrc 
+#kubectl get nodes 
+sudo apt-get install -y python3-pip python3-venv
+kubectl get no
+kubectl get nodes
+kubectl get pods
+kubectl get pods -A
+kubectl run test --image mjbright/k8s-demo:1
+kubectl get pods
+kubectl get pods -o wide
+curl -sL 192.168.194.1
+kubectl get pod test -o yaml
+kubectl get pod test -o json
+kubectl run test2 --image mjbright/k8s-demo:1 --dry-run=client
+kubectl run test2 --image mjbright/k8s-demo:1 --dry-run=client -o yaml
+kubectl run test2 --image mjbright/k8s-demo:1 --dry-run=client -o yaml > pod2.yaml
+vi pod2.yaml 
+kubectl create -f  pod2.yaml 
+cp -a pod2.yaml pod3.yaml
+vi pod3.yaml 
+#kubectl create -f  pod3.yaml 
+kube pod3.yaml 
+kubectl create -f  pod3.yaml 
+kubectl get pod
+vi pod3.yaml 
+kubectl create -f  pod3.yaml 
+kubectl get pods
+kubectl get pods -o wide
+curl -L 192.168.194.3
+curl -L 192.168.194.2
+kubectl get pods --show-labels 
+kubectl get pods --show-labels  -l run
+kubectl get pods --show-labels  -l run=test
+kubectl get pods --show-labels  -l run=test3
+kubectl get pods --show-labels  -l run=test3 -A
+kubectl delete pods -l run=test3 -A
+kubectl -v 10 run test4 --image mjbright/k8s-demo:4  |& vim -
+kubectl get pod
+kubectl create deploy web --image mjbright/k8s-demo:1 --replicas 5 --dry-run=client -o yaml > deploy_web.yaml
+more deploy_web.yaml 
+vi deploy_web.yaml 
+kubectl create -f deploy_web.yaml 
+kubectl get pods
+kubectl get pods -o wide
+curl -L 192.168.194.9
+curl -L 192.168.194.7
+kubectl get pods
+kubectl delete pod web-7d8488dd7c-89fl8 
+kubectl get pods
+kubectl get pods --show-labels 
+#kubectl label pods web-7d8488dd7c-8gfqm a
+kubectl get pods -l app
+kubectl get pods -l app -A
+kubectl label pods web-7d8488dd7c-8gfqm app=mike-debugging
+kubectl label pods web-7d8488dd7c-8gfqm app=mike-debugging --overwrite 
+kubectl get pods -l app --show-labels 
+kubectl delete pod -l app=mike-debugging
+kubectl get pods -l app --show-labels 
+kubectl logs web-7d8488dd7c-dq9fl 
+kubectl logs web-7d8488dd7c-dq9fl -p
+kubectl logs web-7d8488dd7c-dq9fl -c web
+kubectl describe pod web-7d8488dd7c-dq9fl | less
+kubectl logs web-7d8488dd7c-dq9fl -c k8s-demo
+kubectl exec  web-7d8488dd7c-dq9fl -- sh
+kubectl get no
+kubectl get all
+#kubectl scale deploy web --replicas 10
+vi deploy_web.yaml 
+kubectl create -f deploy_web.yaml 
+kubectl apply -f deploy_web.yaml 
+kubectl get all
+kubectl get all --show-labels 
+kubectl get all --show-labels  -o wide
+curl -sL 192.168.194.7 
+curl -sL 192.168.194.7/1
+kubectl expose deploy web --port 80 --dry-run=client -o yaml
+kubectl expose deploy web --port 80 --dry-run=client -o yaml > service_web.yaml
+vi service_web.yaml 
+kubectl create -f service_web.yaml 
+kubectl get all --show-labels  -o wide
+curl -sL 10.105.176.164 
+while true; do curl -sL 10.105.176.164/1; sleep 1; done
+kubectl get pods --show-labels 
+#kubectl label pod -l run app=web --overwrite 
+kubectl run alpine --image alpine -- /bin/sh -c "while true; do date; sleep 1; done"
+kubectl logs alpine 
+kubectl logs alpine  -f
+#kubectl label pod alpine app=web --overwrite 
+#kubectl describe 
+kubectl run -it alpine2 --image alpine -- /bin/sh -c "while true; do date; sleep 1; done"
+kubectl get pod
+kubectl get pod --show-labels 
+kubectl describe service web 
+kubectl get service web -o yaml
+kubectl get ep web
+kubectl get ep web -o yaml
+kubectl get ep web -o yaml | grep ip:
+#kubectl label pod alpine app=web --overwrite 
+kubectl label pod alpine app=web --overwrite 
+kubectl label pod alpine2 app=web --overwrite 
+kubectl get ep web -o yaml | grep ip:
+curl 192.168.194.17
+curl 192.168.194.18
+kubectl describe svc web 
+kubectl run -it alpine2 --image alpine -- /bin/sh -c "while true; do date; sleep 1; done"
+#kubectl run -it alpine2 --image alpine -- /bin/sh -c "while true; do date; sleep 1; done"
+while true; do curl -sL 10.105.176.164/1; sleep 1; done
+kubectl label pod alpine app- --overwrite 
+kubectl label pod alpine2 app- --overwrite 
+kubectl describe svc web 
+while true; do curl -sL 10.105.176.164/1; sleep 1; done
+kubectl get pod
+kubectl exec  alpine  -- sh
+kubectl exec -it  alpine  -- sh
+kubectl get pods -A
+kubectl get svc -A
+kubectl get ns
+kubectl get pods -A
+kubectl create ns dev-team
+kubectl create ns qa-team
+kubectl get ns
+kubectl run test --image mjbright/k8s-demo:1
+kubectl -n dev-team run test --image mjbright/k8s-demo:1
+kubectl get pods -A
+kubectl get no -o wide
+kubectl get svc 
+kubectl get pod -o wide
+ll
+kubectl get pods -A -o wide
+kubectl get pods -o wide
+kubectl describe node | grep Taint
+kubectl taint node cp node-role.kubernetes.io/master-
+kubectl describe node | grep Taint
+kubectl scale deploy web --replicas=20
+kubectl get pods -o wide
+kubectl taint node cp node-role.kubernetes.io/master:NoSchedule
+kubectl describe node | grep Taint
+kubectl get pods -o wide
+kubectl taint node cp node-role.kubernetes.io/master:NoExecute
+kubectl get pods -o wide
+kubectl api-resources
+vi k8scp.sh
+#kubectl api-resources
+more /proc/meminfo 
+df -h 
+cat /etc/*elease*
+crictl ps
+sudo crictl ps
+ll
+more pod2.yaml 
+more deploy_web.yaml 
+kubectl create deploy web --image mjbright/k8s-demo:1 --dry-run-client -o json
+kubectl create deploy web --image mjbright/k8s-demo:1 --dry-run=client -o json
+kubectl create deploy web --image mjbright/k8s-demo:1 --dry-run=client -o yaml
+kubectl get all
+kubectl create service web2 clusterip --dry-run=client -o yaml
+kubectl create service --help
+kubectl create service clusterip web2 --dry-run=client -o yaml
+kubectl create service clusterip web2 --dry-run=client -o yaml --port 80
+kubectl create service clusterip --port 80 web2 --dry-run=client -o yaml
+kubectl create service clusterip --tcp=80 web2 --dry-run=client -o yaml
+kubectl create deploy
+kubectl create daemonset
+kubectl create deploy web --image mjbright/k8s-demo:1 --dry-run=client -o yaml
+kubectl create deploy web --image mjbright/k8s-demo:1 --dry-run=client -o yaml > daemonset.yaml
+vi daemonset.yaml 
+kubectl describe service web
+kubectl get pods
+kubectl describe service web
+kubectl get service web
+kubectl get service web -o yaml
+kubectl get service web -o yaml > svc.yaml
+vi svc.yaml 
+kubectl apply -f svc.yaml 
+vi svc.yaml 
+kubectl apply -f svc.yaml 
+kubectl get svc
+curl -L 10.97.206.4
+#kubectl get pod 
+kubectl edit pod web-7d8488dd7c-dq9fl 
+kubectl get pods | grep web-7d8488dd7c-dq9fl
+kubectl edit pod web-7d8488dd7c-dq9fl 
+kubectl get pods | grep web-7d8488dd7c-dq9fl
+kubectl edit pod web-7d8488dd7c-dq9fl 
+kubectl get pods --show-labels 
+kubectl get pods --show-labels  | grep -c ^web
+kubectl get svc
+kubectl describe service web
+kubectl get nodes -o wide
+kubectl get svc
+kubectl get pod test -o wide
+grep 192 k8scp.sh
+grep " init " k8scp.sh
+more LFD459/SOLUTIONS/s_02/kubeadm.yaml 
+grep 192 LFD459/SOLUTIONS/s_02/kubeadm.yaml 
+more LFD459/SOLUTIONS/s_02/kubeadm.yaml 
+grep apply k8scp.sh
+wget https://docs.projectcalico.org/manifests/calico.yaml
+wc -l calico.yaml 
+#vi calico.yaml 
+grep kind: calico.yaml 
+grep ^kind: calico.yaml 
+vi calico.yaml 
+kubectl get pods -A
+kubectl get pods -A -o wide
+kubectl get pods -A -o wide | grep " cp "
+kubectl deploy web --replicas 40
+kubectl scale deploy web --replicas 40
+kubectl get pods -A -o wide | grep " cp "
+kubetl describe node | grep Taint
+kubectl describe node | grep Taint
+kubectl taint node --all node-role.kubernetes.io/master-
+kubectl describe node | grep Taint
+kubectl get pods -A -o wide | grep " cp "
+kubectl scale deploy web --replicas 0
+kubectl get pods
+kubectl get pods --show-labels 
+kubectl scale deploy web --replicas 40
+kubectl get pods -A -o wide | grep " cp "
+kubectl get no -o wide
+kubectl get pods -A -o wide | grep " cp " | grep 192.168
+kubectl get pods -A -o wide | grep -v " cp " | grep 192.168
+kubectl get ipamblocks.crd.projectcalico.org 
+kubectl get ipamblocks.crd.projectcalico.org  -o yaml
+kubectl get ipamblocks.crd.projectcalico.org  -o yaml | less
+vi calico.yaml 
+kubectl get pods
+kubectl get pods -n kube-system 
+grep 10.96 calico.yaml 
+kubeadm token create print-join-command
+kubeadm token create --print-join-command
+#kubeadm token create --print-join-command
+kubectl get -A secrets | grep kubeadm
+kubectl get -A secrets | grep -v default | grep token
+##kubeadm token create --print-join-command
+kubeadm token create --print-join-command
+kubeadm token list
+kubectl get no
+kubectl -v 10  get no |& vim -
+kubectl get no -o wide
+curl hostip.me; echo
+curl ipconfig.me; echo
+curl -L ipconfig.me; echo
+more ~/.kube/config 
+sudo podman image ls
+#sudo podman pull image mjbright/k8s-demo:alpine1
+ll -tr *.yaml
+more pod3.yaml 
+sudo podman image ls
+sudo podman pull image mjbright/k8s-demo:alpine1
+sudo podman pull image mjbright/k8s-demo:alpine1 --help
+sudo podman pull mjbright/k8s-demo:alpine1
+sudo podman image ls
+sudo podman image history 73
+sudo podman image history e2
+kubectl get pods
+kubectl scale deploy web --replicas 5
+kubectl get pods
+kubectl create deploy --image mjbright/k8s-demo:alpine5 web-alpine
+kubectl get pods
+#kubectl exec -it we
+source <(kubectl completion bash)
+kubectl exec -it web-7d8488dd7c-4kk28 -- sh
+kubectl exec -it web-alpine-5f4d4c7b68-vcdm7 -- sh
+which kubectl
+ll -tr
+ll src/
+ll src/LFD459_Labs.ipynb/
+ll
+mkdir scripts
+mv start_jupyter.sh install_jupyter.sh scripts/
+ll src/
+git clone https://github.com/mjbright/k1spy src/mjbright.k1spy
+git clone https://github.com/mjbright/k8scenarios src/mjbright.k8scenarios
+git clone https://github.com/mjbright/k8s-scenarios src/mjbright.k8s-scenarios
+ll src/
+./scripts/install_jupyter.sh 
+which apt
+which yum
+vi scripts/install_jupyter.sh 
+sudo podman image pull nginx:1.12
+find LFD459/ -name '*easyreg*'
+more $( find LFD459/ -name '*easyreg*' )
+grep nginx $( find LFD459/ -name '*easyreg*' )
+ll /etc/crio/crio.conf
+#ll /etc/crio/crio.conf
+sudo grep -irl docker /etc/
+sudo grep -irl quay /etc/
+sudo vi /etc/containers/registries.conf
+sudo grep -ir quay /etc/
+sudo podman image pull docker.io/nginx:1.12
+which python3
+#ll /var/lib/containers/storage/
+sudo -i
+find LFD459/ -name basic.yaml
+more LFD459/SOLUTIONS/s_02/basic.yaml 
+kubectl get -A get ippool
+kubectl get -A ippool
+kubectl get -A ippool -o yal
+kubectl get -A ippool -o yaml
+vi ~/.tmux.conf
+tmux versoin
+tmux version
+tmux -version
+tmux --version
+tmux -v
+tmux -V
+vi ~/.tmux.conf
+cd src/mjbright.k1spy/
+./k1s.py 
+sudo apt-get install -y python3-pip python3-venv
+pip install kubernetes
+python3 -m pip install kubernetes
+./k1s.py 
+kubectl delete deploy web
+kubectl delete pod test
+kubectl delete pod test2
+kubectl delete pod test4
+kubectl delete pod alpine
+kubectl delete pod alpine2
+kubectl create ns demo
+kubectl api-resources | less
+kubectl api-resources | grep customres
+kubectl api-resources | grep crd
+kubectl get ipamblocks.crd.projectcalico.org 
+kubectl get ipamblocks.crd.projectcalico.org  -o yaml
+kubectl get ipamblocks.crd.projectcalico.org  -o yaml | less
+sudo -i
+~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py pod | grep -i hostpath
+kubectl get cm -A
+kubectl delete cm/cm1 cm/cm2 cm/cm3 cm/cm4
+kubectl get cm -A
+kubectl get cm -A | grep kube-root
+kubectl -n demo get cm -o yaml
+kubectl -n demo get cm -o yaml | less
+kubectl get cm -A
+kubectl -n kube-system get cm coredns -o yaml
+kubectl create cm cm1 --from-literal  key1=dt --from-literal key2=@mjb
+kubectl get cm cm1 -o yaml
+ll
+kubectl create cm cm2 --from-file /etc/hosts
+kubectl get cm cm2 -o yaml
+vi cm.env 
+kubectl create cm cm3 --from-env-file cm.env
+kubectl get cm cm3 -o yaml
+kubectl get cm cm3 -o yaml > cm4.yaml
+vi cm4.yaml 
+kubectl create -f cm4.yaml 
+kubectl get cm cm4 -o yaml
+kubectl get all
+kubectl rollout restart deploy/web
+kubectl get all
+kubectl describe pod web-65d448d845-vqg9g | grep mage:
+kubectl create secret generic test --from-literal user=mike --from-literal password=password
+kubectl create secret generic test2 --from-literal user=mike --from-literal password=password
+kubectl get secrets test2 -o yaml
+echo cGFzc3dvcmQ= | base64 -d ; echo
+echo bWlrZQ== | base64 -d ; echo
+uptime
+ll -tr
+ll scripts/
+ll src/
+ll -tr
+ps -fade | grep jupy
+vi deploy_web.yaml 
+kubectl get all
+kubectl delete deployments.apps web-alpine 
+kubectl get all
+kubectl delete pod web-7d8488dd7c-dq9fl 
+kubectl get all
+kubectl delete rs web-7d8488dd7c 
+kubectl get all
+kubectl get ds -A
+kubectl get pods -A -o wide | grep calico-node
+kubectl get pods -A -o wide | grep kube-proxy
+kubectl describe -n kube-system pod calico-node-g9t2p | less
+ll /opt/cni/bin/
+kubectl get pods
+#kubectl create sta
+cp -a deploy_web.yaml sts_web.yaml
+vi sts_web.yaml 
+kubectl create -f sts_web.yaml 
+vi sts_web.yaml 
+kubectl create -f sts_web.yaml 
+kubectl get pods -w
+kubectl get pods
+#kubectl scale sts --replicas=0; kubectl get pods -w
+kubectl get pods --show-labels 
+kubectl scale sts --replicas=0; kubectl get pods -w -l controller-revision-hash=web-774b59bd9
+#kubectl scale sts web  --replicas=0; kubectl get pods -w -l controller-revision-hash=web-774b59bd9
+kubectl scale sts web  --replicas=0; kubectl get pods -w -l controller-revision-hash=web-774b59bd9
+kubectl explain job
+kubectl explain job.spec
+#~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py 
+kubectl explain job --recursive
+~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py job
+ll calico.yaml 
+vi calico.yaml 
+grep -i job calico.yaml 
+kubectl explain job.spec
+kubectl explain job.spec   | less
+ll /etc/kubernetes/manifests/
+sudo vi /etc/kubernetes/manifests/etcd.yaml 
+ll /etc/kubernetes/pki/
+ll /etc/kubernetes/pki/etcd/
+ll /var/lib/etcd/
+sudo ls -al /var/lib/etcd/
+sudo ls -al /var/lib/etcd/member
+sudo ls -al /var/lib/etcd/member/wal
+sudo strings /var/lib/etcd/member/wal/0000000000000000-0000000000000000.wal
+ll calico.yaml 
+vi calico.yaml 
+kubectl create pvc name --dry-run=client -o yaml
+kubectl create pvc --dry-run=client -o yaml
+kubectl create pvc 
+kubectl get cm -A
+kubectl get -n kube-system cm coredns 
+kubectl get -n kube-system cm coredns  -o yaml
+kubectl get -n kube-system cm coredns 
+kubectl get cm -A
+kubectl create cm cm1 --from-literal key=value --from-literal key2=value2
+kubectl get cm cm1 -o yaml
+kubectl create cm cm2 --from-file /etc/hosts 
+kubectl get cm cm2 -o yaml
+vi cm.env
+kubectl create cm cm3 --from-env-file cm.env 
+kubectl get cm cm3 -o yaml
+kubectl get cm cm3 -o yaml > cm4.yaml
+vi cm4.yaml 
+kubectl create -f cm4.yaml 
+kubectl get cm cm4 -o yaml
+~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py pod | grep -i env
+~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py pod | grep -i env | grep -ivE "initcont|ephemeral"
+kubectl get deploy
+kubectl get deploy,pod
+kubectl rollout restart deploy/web
+kubectl get deploy,pod
+kubectl create secret generic test --from-literal mypass=verysecret
+kubectl get secrets test -o yaml
+echo  dmVyeXNlY3JldA== | base64 -d; echo
+kubectl config get-contexts 
+kubectl exec -it testpod -- sh
+kuebctl get pods -o wide
+kubectl get pods -o wide
+kubectl get pods -o wide | grep " cp "
+kubectl exec -it testpod -- sh
+kubectl get all
+kube
+kubectl delete rs web-65d448d845 
+kubectl delete rs web-67dcfdc5f4 
+kubectl delete svc web-headless 
+kubectl get all
+vi service_web.yaml 
+kubectl apply -f service_web.yaml 
+curl -L 10.98.100.2
+curl -L 10.98.100.28
+sudo podman pull mjbright/quiz:1
+sudo podman pull mjbright/quiz:v1
+kubectl create deploy quiz --image mjbright/quiz:v1
+kubectl create deploy vote --image mjbright/vote:v1
+curl ipconfig.me
+curl -L ipconfig.me
+curl -L ipconfig.me; echo
+kubectl get deploy
+kubectl get pods
+#kubectl create deploy vote --image mjbright/vote:v1
+sudo podman pull mjbright/vote:v1
+#sudo podman pull mjbright/vote:v1
+sudo podman login
+#sudo podman pull mjbright/vote:v1
+sudo podman pull mjbright/vote:v1
+sudo podman pull mjbright/vote:1
+kubectl set image deploy vote vote=mjbright/banner:vote
+kubectl get pods
+kubectl get pods -o wide
+curl -sL  192.168.242.76 
+curl -L  192.168.242.76 
+curl -L   192.168.242.105
+kubectl set image deploy quiz quiz=mjbright/banner:quiz
+curl -L  192.168.242.76 
+kubectl ge tpods
+kubectl get pods
+kubectl get pods -o widw
+kubectl get pods -o wide
+curl -L  192.168.194.31
+curl -L   192.168.242.105
+kubectl get pods -o wide
+curl -L 192.168.194.33
+kubectl edit svc web-np
+kubectl expose deploy quiz --target-port=32000
+kubectl expose deploy quiz --target-port=32000 --port 80
+kubectl expose deploy vote --target-port=32000 --port 80
+kubectl get svc
+kubectl expose deploy quiz --port 80 --help |& grep port
+kubectl get svc
+kubectl delete svc quiz
+kubectl delete svc vote
+kubectl expose deploy quiz --target-port 80 --port 32000
+kubectl expose deploy vote --target-port 80 --port 32000
+kubectl get svc
+#kubectl expose deploy vote --target-port 80 --port 32000
+curl -sL  10.100.89.33:32000
+curl -sL  10.109.149.133:32000
+curl -sL run.linkerd.io/install > setup.sh
+mv setup.sh linkerd_setup.sh
+echo 'curl -sL run.linkerd.io/install' >> setup.sh
+cat setup.sh >> linkerd_setup.sh 
+rm setup.sh 
+vi linkerd_setup.sh 
+sh -x linkerd_setup.sh 
+export PATH=$PATH:/home/student/.linkerd2/bin
+linkerd check --pre
+linkerd install | kubectl apply -f
+linkerd check
+linkerd viz install | kubectl apply -f -
+linkerd check
+kubectl -n linkerd-viz edit deploy web
+kubectl edit svc web -n linkerd-viz
+kubectl get svc
+kubectl get svc -A
+kubectl get svc -A | grep viz
+curl  10.101.241.192:32001
+curl -L 10.101.241.192:32001
+curl -L hostip.me
+curl -L ifconfig.me
+curl -L ifconfig.me; echo
+kubectl get deploy web -o yaml
+kubectl get deploy web -o yaml > web_normal.yaml
+kubectl get deploy web -o yaml | linkerd injext - > web_normal.yaml
+kubectl get deploy web -o yaml | linkerd inject - > web_normal.yaml
+kubectl get deploy web -o yaml > web_normal.yaml
+kubectl get deploy web -o yaml | linkerd inject - > web_inject.yaml
+diff -w web_*
+more web_inject.yaml 
+kubectl get deploy web -o yaml | linkerd inject - | kubectl apply -f
+kubectl get deploy web -o yaml | linkerd inject - | kubectl apply -f -
+kubectl get pods -l app=web | grep linkerd
+kubectl get pods -l app=web -o yaml | grep linkerd
+kubectl get pods -l app=web -o yaml | vim -
+helm search hub ingress
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm fetch ingress-nginx/ingress-nginx --untar
+ll ingress-nginx/
+helm install myingress ./ingress-nginx/
+kubectl get ingress --all-namespaces
+kubectl --namespace default get services -o wide -w myingress-ingress-nginx-controller
+ll LFD459/SOLUTIONS/s_07/ingress.yaml
+cp -a LFD459/SOLUTIONS/s_07/ingress.yaml .
+vi ingress.yaml 
+kubectl get svc
+curl -L 127.0.0.1:32000
+vi ingress.yaml 
+kubectl create -f ingress.yaml 
+kubectl get ingress
+kubectl describe ingress
+vi ingress.yaml 
+kubectl describe ingress
+kubectl apply -f ingress.yaml 
+kubectl describe ingress
+kubectl get svc
+kubectl describe ingress
+vi ingress.yaml 
+curl -L 127.0.0.1:32000
+curl -H "Host: quiz.mjbright.click" -L 127.0.0.1:32000
+curl -H "Host: vote.mjbright.click" -L 127.0.0.1:32000
+curl -H "Host: vote.mjbright.click" -L 127.0.0.1:30961
+curl -H "Host: quiz.mjbright.click" -L 127.0.0.1:30961
+curl -H "Host: web.mjbright.click" -L 127.0.0.1:30961
+kubectl get svc
+kubectl expose deploy web --port 80 --name web-cip
+kubectl delete svc web-cip
+kubectl expose deploy web --port 80 --name web-cip --target-port 32000
+kubectl get svc
+vi ingress.yaml 
+kubectl apply -f ingress.yaml 
+kubectl get svc
+kubectl delete svc web-cip
+more ingress.yaml 
+vim ingress.yaml 
+kubectl get ingress
+kubectl describe ingress
+#curl -L 127.0.0.1:
+kubectl get svc
+kubectl edit svc myingress-ingress-nginx-controller
+kubectl get svc
+curl -L 127.0.0.1:80
+curl -H "Host: vote.mjbright.click" -L 127.0.0.1:80
+curl -H "Host: vote.mjbright.click" -L 127.0.0.1:30961
+curl -H "Host: quiz.mjbright.click" -L 127.0.0.1:30961
+curl -H "Host: web.mjbright.click" -L 127.0.0.1:30961
+kubectl describe ingress
+curl -L 127.0.0.1:30961
+kuebctl get svc
+kubectl get svc
+curl -H "Host: quiz.mjbright.click" 10.104.157.138
+#curl -H "Host: quiz.mjbright.click" 10.104.157.138
+kubectl deploy nginx --image nginx
+kubectl create deploy nginx --image nginx
+kubectl expose deploy nginx --port 80
+vi ingress.yaml 
+#curl -H "Host: web.mjbright.click" 10.104.157.138
+curl -H "Host: web.mjbright.click" 10.104.157.138
+kubectl apply -f ingress.yaml 
+kubectl describe ingress
+curl -H "Host: web.mjbright.click" 10.104.157.138
+history
+more ingress.yaml 
+kubectl get pods -A
+kubectl get pods -A | less
+kubectl get pod
+kubectl get -o wide pod quiz-67997c4d65-dfpfq 
+kubectl describe pod quiz-67997c4d65-dfpfq 
+kubectl scale deploy quiz --replicas=5
+kubectl describe pod quiz-67997c4d65-dfpfq 
+kubectl describe deploy quiz
+kubectl describe pod quiz-67997c4d65-6gdbj 
+kubectl logs quiz-67997c4d65-6gdbj 
+kubectl logs quiz-67997c4d65-6gdbj -p
+kubectl get pods -A | less
+kubectl get pods -A
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -p
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -c public-api
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -c public-api -p
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -c linkerd-proxy
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -c linkerd-proxy -p
+kubectl get pods --show-labels
+kubectl describe svc quiz 
+kubectl get pod quiz -l app=quiz
+kubectl get pod -l app=quiz
+kubectl get pod -l app=quiz -o wide
+kubectl get pods -A -w
+watch kubectl get pods
+sudo kubeadm token create --print-join-command
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -c linkerd-proxy -f
+kubectl logs -n linkerd linkerd-controller-65cccb879d-b9659 -c linkerd-proxy -f --tail 10000
+~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py pods
+~/src/mjbright.k8s-scenarios/scripts/k8s-explain.py pods | grep '.image'
+kubectl get netpol
+kubectl get netpol -A
+kubectl get ingress
+kubectl get ingress -A
+kubectl describe ingress
+kubectl get all
+#sudo chown -R root:root .kube/cache/
+ll .kube/
+ll .kube/cache/
+ll .kube/cache/discovery/
+ll .kube/cache/discovery/172.31.0.130_6443/
+ll .kube/cache/discovery/172.31.0.130_6443/v1/
+ll .kube/cache/discovery/172.31.0.130_6443/v1/serverresources.json 
+more .kube/cache/discovery/172.31.0.130_6443/v1/serverresources.json 
+jq . .kube/cache/discovery/172.31.0.130_6443/v1/serverresources.json 
+sudo apt-get install -y jq
+jq . .kube/cache/discovery/172.31.0.130_6443/v1/serverresources.json 
+sudo chown -R root:root .kube/cache/
+ll .kube/
+kubectl get pods
+kubectl get all
+kubectl -v 10 get all |& less
+kubectl -v 10 get all 
+sudo chown -R ubuntu:ubuntu .kube/cache/
+kubectl get all
+ll .kube/
+sudo chown -R student:student .kube/cache/
+kubectl get all
+ll /var/log/syslog
+sudo grep kubelet /var/log/syslog
+sudo journalctl -u kubelet
+sudo kubectl delete node cp
+kubectl get no
+kubectl get pods -n kube-system 
+kubectl get pods -A
+kubectl get pods -A | api
+kubectl get pods -A | grep api
+sudo kubectl delete node cp
+sudo kubeadm reset
+kubectl get pods -A
+ll /etc/kubernetes/
+#ll /etc/kubernetes/
+ll /var/lib/etcd/
+sudo ls -al /var/lib/etcd/
+du -sh .
+du -ah . | sort -h
+sudo rm -rf .local/
+du -ah . | sort -h
+sudo rm -rf linux-amd64/ .linkerd2/ helm-v3.7.0-linux-amd64.tar.gz kubeval* .cache/ .kube/
+du -ah . | sort -h
+ll src/LFD459_Labs.ipynb/
+tar zcf /tmp/ckad.txz ./
+wget https://github.com/instrumenta/kubeval/releases/download/v0.16.1/kubeval-linux-amd64.tar.gz
+tar tf kubeval-linux-amd64.tar.gz 
+tar xf kubeval-linux-amd64.tar.gz  kuebval
+tar xf kubeval-linux-amd64.tar.gz  kubeval
+ll
+./kubeval pod2.yaml 
+./kubeval pod3.yaml 
+./kubeval sts_web.yaml 
+cp -a pod2.yaml bad_yaml_pod.yaml
+vi bad_yaml_pod.yaml 
+./kubeval bad_yaml_pod.yaml 
+./kubeval -v bad_yaml_pod.yaml 
+kubeval --help
+./kubeval --help
+vi bad_yaml_pod.yaml 
+./kubeval --help
+./kubeval bad_yaml_pod.yaml 
+ip a
+tshark
+sudo apt-get install tshark
+tshark --help | less
+ip a
+sudo tshark -i 
+ip a
+#sudo tshark -i 
+tshark --help
+sudo tshark -i all
+sudo tshark -i any
+curl -L ipconfig.me; echo
+watch ls -altr /tmp/
+ll /tmp/
+#ll /tmp/ck
+ls -al /tmp/
+watch ls -altr /tmp/
+ll -tr /tmp/

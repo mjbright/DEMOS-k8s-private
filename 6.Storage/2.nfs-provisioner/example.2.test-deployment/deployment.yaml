@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+  labels:
+    app: test-deploy
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: test-deploy
+
+  template:
+    metadata:
+      labels:
+        app: test-deploy
+
+    spec:
+      containers:
+      - name:    c1
+        image: mjbright/k8s-demo:alpine1
+        command: ['/bin/sh', '-c', 'while true; do echo [host $(NODE_NAME)] [pod $(hostname)]: $(date) >> /mnt/deploy-date.log; sleep 1; done']
+
+        # Get NODE_NAME via downwardAPI - used in above command
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+
+        volumeMounts:
+        - name: nfs-vol
+          mountPath: /mnt
+
+        ports:
+        - containerPort: 80
+          protocol: TCP
+
+      volumes:
+      - name: nfs-vol
+        persistentVolumeClaim:
+          claimName: pvc-nfs
+

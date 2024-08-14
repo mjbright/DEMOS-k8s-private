@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy-example
+  name: deploy-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-example
+  template:
+    metadata:
+      labels:
+        app: deploy-example
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:1
+        name: k8s-demo
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: deploy-example
+  name: deploy-example
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: deploy-example

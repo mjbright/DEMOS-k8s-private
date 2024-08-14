@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: vol1
+  name: vol1
+spec:
+  containers:
+  - image: alpine
+    name: c1    command: ['/bin/sh','-c’,‘while true; do date >> /tmp/ed/date.log; sleep 1; done’]    volumeMounts:
+    - mountPath: /tmp/ed
+      name: ed
+  - image: alpine
+    name: c2    command: ['/bin/sleep’,’3600’]    volumeMounts:
+    - mountPath: /tmp/ed
+      name: ed
+  volumes:
+  - name: ed
+    emptyDir: {}
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app:   webserv11
+  name: webserv11
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webserv11
+  template:
+    metadata:
+      labels:
+        app: webserv11
+
+    spec:
+      nodeSelector:
+        group: dev
+
+      containers:
+      - image: nginx:1.18
+        name: webserv

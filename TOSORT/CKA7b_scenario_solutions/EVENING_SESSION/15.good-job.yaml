@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: good-job
+spec:
+  completions: 5
+  parallelism: 2
+  template:
+    metadata:
+    spec:
+      containers:
+      - image: alpine
+        name: good-job
+        command: ['bin/sh', '-c', 'sleep 5; exit 0']
+      restartPolicy: Never

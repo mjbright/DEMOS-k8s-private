@@ -1,0 +1,14 @@
+
+kubectl apply -f crontab_crd.yaml
+kubectl api-resources | grep cront
+kubectl get crontabs.stable.example.com 
+
+kubectl create -f crontab.yaml
+kubectl get crontabs.stable.example.com 
+kubectl get crontabs.stable.example.com  -o yaml
+
+ls -al ~/.kube/cache/discovery/k8scp_6443/stable.example.com/
+ls -al ~/.kube/cache/discovery/k8scp_6443/stable.example.com/v1/
+ls -al ~/.kube/cache/discovery/k8scp_6443/stable.example.com/v1/serverresources.json 
+jq . ~/.kube/cache/discovery/k8scp_6443/stable.example.com/v1/serverresources.json 
+

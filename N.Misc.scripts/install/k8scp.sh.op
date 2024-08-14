@@ -1,0 +1,713 @@
+Hit:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:4 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:6 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+Get:7 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:8 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:9 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [2373 kB]
+Get:10 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [454 kB]
+Get:11 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [596 kB]
+Get:12 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1781 kB]
+Get:13 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [2028 kB]
+Get:14 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [386 kB]
+Get:15 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [27.2 kB]
+Get:16 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [6808 B]
+Get:17 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [10.3 kB]
+Get:18 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [4824 B]
+Get:19 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [11.3 kB]
+Get:20 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [5772 B]
+Get:21 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [361 kB]
+Get:22 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [572 kB]
+Get:23 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [77.5 kB]
+Get:24 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1166 kB]
+Get:25 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [269 kB]
+Get:26 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [20.9 kB]
+Get:27 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [4732 B]
+Fetched 24.2 MB in 5s (4599 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  vim vim-common vim-runtime vim-tiny xxd
+5 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+5 standard security updates
+Need to get 7186 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 vim amd64 2:8.0.1453-1ubuntu1.8 [1154 kB]
+Get:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 vim-tiny amd64 2:8.0.1453-1ubuntu1.8 [476 kB]
+Get:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 vim-runtime all 2:8.0.1453-1ubuntu1.8 [5435 kB]
+Get:4 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 xxd amd64 2:8.0.1453-1ubuntu1.8 [49.9 kB]
+Get:5 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 vim-common all 2:8.0.1453-1ubuntu1.8 [71.1 kB]
+Fetched 7186 kB in 0s (32.9 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 57633 files and directories currently installed.)
+Preparing to unpack .../vim_2%3a8.0.1453-1ubuntu1.8_amd64.deb ...
+Unpacking vim (2:8.0.1453-1ubuntu1.8) over (2:8.0.1453-1ubuntu1.7) ...
+Preparing to unpack .../vim-tiny_2%3a8.0.1453-1ubuntu1.8_amd64.deb ...
+Unpacking vim-tiny (2:8.0.1453-1ubuntu1.8) over (2:8.0.1453-1ubuntu1.7) ...
+Preparing to unpack .../vim-runtime_2%3a8.0.1453-1ubuntu1.8_all.deb ...
+Unpacking vim-runtime (2:8.0.1453-1ubuntu1.8) over (2:8.0.1453-1ubuntu1.7) ...
+Preparing to unpack .../xxd_2%3a8.0.1453-1ubuntu1.8_amd64.deb ...
+Unpacking xxd (2:8.0.1453-1ubuntu1.8) over (2:8.0.1453-1ubuntu1.7) ...
+Preparing to unpack .../vim-common_2%3a8.0.1453-1ubuntu1.8_all.deb ...
+Unpacking vim-common (2:8.0.1453-1ubuntu1.8) over (2:8.0.1453-1ubuntu1.7) ...
+Setting up xxd (2:8.0.1453-1ubuntu1.8) ...
+Setting up vim-common (2:8.0.1453-1ubuntu1.8) ...
+Setting up vim-runtime (2:8.0.1453-1ubuntu1.8) ...
+Setting up vim-tiny (2:8.0.1453-1ubuntu1.8) ...
+Setting up vim (2:8.0.1453-1ubuntu1.8) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+nano is already the newest version (2.9.3-2).
+nano set to manually installed.
+libseccomp2 is already the newest version (2.5.1-1ubuntu1~18.04.2).
+libseccomp2 set to manually installed.
+vim is already the newest version (2:8.0.1453-1ubuntu1.8).
+vim set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+* Applying /etc/sysctl.d/10-console-messages.conf ...
+kernel.printk = 4 4 1 7
+* Applying /etc/sysctl.d/10-ipv6-privacy.conf ...
+net.ipv6.conf.all.use_tempaddr = 2
+net.ipv6.conf.default.use_tempaddr = 2
+* Applying /etc/sysctl.d/10-kernel-hardening.conf ...
+kernel.kptr_restrict = 1
+* Applying /etc/sysctl.d/10-link-restrictions.conf ...
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.d/10-lxd-inotify.conf ...
+fs.inotify.max_user_instances = 1024
+* Applying /etc/sysctl.d/10-magic-sysrq.conf ...
+kernel.sysrq = 176
+* Applying /etc/sysctl.d/10-network-security.conf ...
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.tcp_syncookies = 1
+* Applying /etc/sysctl.d/10-ptrace.conf ...
+kernel.yama.ptrace_scope = 1
+* Applying /etc/sysctl.d/10-zeropage.conf ...
+vm.mmap_min_addr = 65536
+* Applying /usr/lib/sysctl.d/50-default.conf ...
+net.ipv4.conf.all.promote_secondaries = 1
+net.core.default_qdisc = fq_codel
+* Applying /etc/sysctl.d/99-cloudimg-ipv6.conf ...
+net.ipv6.conf.all.use_tempaddr = 0
+net.ipv6.conf.default.use_tempaddr = 0
+* Applying /etc/sysctl.d/99-kubernetes-cri.conf ...
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+* Applying /etc/sysctl.d/99-sysctl.conf ...
+* Applying /etc/sysctl.conf ...
+deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/1.22/xUbuntu_18.04/ /
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Warning: apt-key output should not be parsed (stdout is not a terminal)
+ 95  1093   95  1040    0     0   1194      0 --:--:-- --:--:-- --:--:--  1192100  1093  100  1093    0     0   1253      0 --:--:-- --:--:-- --:--:--  1252
+OK
+deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04/ /
+Hit:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Get:5 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  InRelease [1613 B]
+Get:6 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/1.22/xUbuntu_18.04  InRelease [1614 B]
+Get:8 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/1.22/xUbuntu_18.04  Packages [1384 B]
+Get:7 https://mirrorcache.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  Packages [6320 B]
+Fetched 10.9 kB in 3s (3234 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  catatonit conmon containernetworking-plugins containers-common criu crun
+  dbus-user-session libgpgme11 libnet1 libnl-3-200 libprotobuf-c1
+  libprotobuf10 libyajl2 podman-plugins python3-protobuf slirp4netns
+Suggested packages:
+  cpp
+Recommended packages:
+  fuse-overlayfs
+The following NEW packages will be installed:
+  buildah catatonit conmon containernetworking-plugins containers-common cri-o
+  cri-o-runc criu crun dbus-user-session libgpgme11 libnet1 libnl-3-200
+  libprotobuf-c1 libprotobuf10 libyajl2 podman podman-plugins python3-protobuf
+  slirp4netns
+0 upgraded, 20 newly installed, 0 to remove and 0 not upgraded.
+Need to get 59.6 MB of archives.
+After this operation, 292 MB of additional disk space will be used.
+Get:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgpgme11 amd64 1.10.0-1ubuntu2 [111 kB]
+Get:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libprotobuf10 amd64 3.0.0-9.1ubuntu1 [651 kB]
+Get:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 python3-protobuf amd64 3.0.0-9.1ubuntu1 [262 kB]
+Get:4 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libnet1 amd64 1.1.6+dfsg-3.1 [42.9 kB]
+Get:5 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libnl-3-200 amd64 3.2.29-0ubuntu3 [52.8 kB]
+Get:6 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/universe amd64 libprotobuf-c1 amd64 1.2.1-2 [19.0 kB]
+Get:7 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 libyajl2 amd64 2.1.0-2build1 [20.0 kB]
+Get:8 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates/main amd64 dbus-user-session amd64 1.12.2-1ubuntu1.2 [9392 B]
+Get:19 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/1.22/xUbuntu_18.04  cri-o 1.22.1~1 [20.1 MB]
+Get:9 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  containers-common 100:1-22 [52.3 kB]
+Get:10 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  criu 3.16.1-3 [657 kB]
+Get:11 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  crun 100:0.18-2 [236 kB]
+Get:12 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  buildah 100:1.19.6-2 [6443 kB]
+Get:13 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  catatonit 0.1.5~1 [275 kB]
+Get:14 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  conmon 100:2.0.30-2 [33.4 kB]
+Get:15 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  podman-plugins 100:1.1.1-5 [1034 kB]
+Get:16 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  podman 100:3.0.1-2 [18.5 MB]
+Get:17 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  slirp4netns 100:1.1.8-3 [691 kB]
+Get:18 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  containernetworking-plugins 100:0.9.1-1 [7345 kB]
+Get:20 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  cri-o-runc 1.0.1~0 [3013 kB]
+Fetched 59.6 MB in 5s (11.4 MB/s)
+Selecting previously unselected package containers-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 57633 files and directories currently installed.)
+Preparing to unpack .../00-containers-common_100%3a1-22_all.deb ...
+Unpacking containers-common (100:1-22) ...
+Selecting previously unselected package libgpgme11:amd64.
+Preparing to unpack .../01-libgpgme11_1.10.0-1ubuntu2_amd64.deb ...
+Unpacking libgpgme11:amd64 (1.10.0-1ubuntu2) ...
+Selecting previously unselected package libprotobuf10:amd64.
+Preparing to unpack .../02-libprotobuf10_3.0.0-9.1ubuntu1_amd64.deb ...
+Unpacking libprotobuf10:amd64 (3.0.0-9.1ubuntu1) ...
+Selecting previously unselected package python3-protobuf.
+Preparing to unpack .../03-python3-protobuf_3.0.0-9.1ubuntu1_amd64.deb ...
+Unpacking python3-protobuf (3.0.0-9.1ubuntu1) ...
+Selecting previously unselected package libnet1:amd64.
+Preparing to unpack .../04-libnet1_1.1.6+dfsg-3.1_amd64.deb ...
+Unpacking libnet1:amd64 (1.1.6+dfsg-3.1) ...
+Selecting previously unselected package libnl-3-200:amd64.
+Preparing to unpack .../05-libnl-3-200_3.2.29-0ubuntu3_amd64.deb ...
+Unpacking libnl-3-200:amd64 (3.2.29-0ubuntu3) ...
+Selecting previously unselected package libprotobuf-c1:amd64.
+Preparing to unpack .../06-libprotobuf-c1_1.2.1-2_amd64.deb ...
+Unpacking libprotobuf-c1:amd64 (1.2.1-2) ...
+Selecting previously unselected package criu.
+Preparing to unpack .../07-criu_3.16.1-3_amd64.deb ...
+Unpacking criu (3.16.1-3) ...
+Selecting previously unselected package libyajl2:amd64.
+Preparing to unpack .../08-libyajl2_2.1.0-2build1_amd64.deb ...
+Unpacking libyajl2:amd64 (2.1.0-2build1) ...
+Selecting previously unselected package crun.
+Preparing to unpack .../09-crun_100%3a0.18-2_amd64.deb ...
+Unpacking crun (100:0.18-2) ...
+Selecting previously unselected package buildah.
+Preparing to unpack .../10-buildah_100%3a1.19.6-2_amd64.deb ...
+Unpacking buildah (100:1.19.6-2) ...
+Selecting previously unselected package catatonit.
+Preparing to unpack .../11-catatonit_0.1.5~1_amd64.deb ...
+Unpacking catatonit (0.1.5~1) ...
+Selecting previously unselected package conmon.
+Preparing to unpack .../12-conmon_100%3a2.0.30-2_amd64.deb ...
+Unpacking conmon (100:2.0.30-2) ...
+Selecting previously unselected package cri-o.
+Preparing to unpack .../13-cri-o_1.22.1~1_amd64.deb ...
+Unpacking cri-o (1.22.1~1) ...
+Selecting previously unselected package dbus-user-session.
+Preparing to unpack .../14-dbus-user-session_1.12.2-1ubuntu1.2_amd64.deb ...
+Unpacking dbus-user-session (1.12.2-1ubuntu1.2) ...
+Selecting previously unselected package podman-plugins.
+Preparing to unpack .../15-podman-plugins_100%3a1.1.1-5_amd64.deb ...
+Unpacking podman-plugins (100:1.1.1-5) ...
+Selecting previously unselected package podman.
+Preparing to unpack .../16-podman_100%3a3.0.1-2_amd64.deb ...
+Unpacking podman (100:3.0.1-2) ...
+Selecting previously unselected package slirp4netns.
+Preparing to unpack .../17-slirp4netns_100%3a1.1.8-3_amd64.deb ...
+Unpacking slirp4netns (100:1.1.8-3) ...
+Selecting previously unselected package containernetworking-plugins.
+Preparing to unpack .../18-containernetworking-plugins_100%3a0.9.1-1_amd64.deb ...
+Unpacking containernetworking-plugins (100:0.9.1-1) ...
+Selecting previously unselected package cri-o-runc.
+Preparing to unpack .../19-cri-o-runc_1.0.1~0_amd64.deb ...
+Unpacking cri-o-runc (1.0.1~0) ...
+Setting up libnet1:amd64 (1.1.6+dfsg-3.1) ...
+Setting up catatonit (0.1.5~1) ...
+Setting up cri-o-runc (1.0.1~0) ...
+Setting up slirp4netns (100:1.1.8-3) ...
+Setting up libprotobuf-c1:amd64 (1.2.1-2) ...
+Setting up dbus-user-session (1.12.2-1ubuntu1.2) ...
+Setting up libgpgme11:amd64 (1.10.0-1ubuntu2) ...
+Setting up libprotobuf10:amd64 (3.0.0-9.1ubuntu1) ...
+Setting up libyajl2:amd64 (2.1.0-2build1) ...
+Setting up python3-protobuf (3.0.0-9.1ubuntu1) ...
+Setting up libnl-3-200:amd64 (3.2.29-0ubuntu3) ...
+Setting up conmon (100:2.0.30-2) ...
+Setting up containers-common (100:1-22) ...
+Setting up containernetworking-plugins (100:0.9.1-1) ...
+Setting up podman-plugins (100:1.1.1-5) ...
+Setting up cri-o (1.22.1~1) ...
+Setting up criu (3.16.1-3) ...
+Setting up crun (100:0.18-2) ...
+Setting up buildah (100:1.19.6-2) ...
+Setting up podman (100:3.0.1-2) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+Created symlink /etc/systemd/system/cri-o.service → /usr/lib/systemd/system/crio.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/crio.service → /usr/lib/systemd/system/crio.service.
+Warning: apt-key output should not be parsed (stdout is not a terminal)
+OK
+Hit:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:6 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/1.22/xUbuntu_18.04  InRelease
+Get:4 https://packages.cloud.google.com/apt kubernetes-xenial InRelease [9383 B]
+Get:7 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 Packages [53.2 kB]
+Hit:8 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_18.04  InRelease
+Fetched 62.6 kB in 1s (45.1 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  conntrack cri-tools kubernetes-cni socat
+The following packages will be REMOVED:
+  containernetworking-plugins
+The following NEW packages will be installed:
+  conntrack cri-tools kubeadm kubectl kubelet kubernetes-cni socat
+0 upgraded, 7 newly installed, 1 to remove and 0 not upgraded.
+Need to get 76.1 MB of archives.
+After this operation, 298 MB of additional disk space will be used.
+Get:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 conntrack amd64 1:1.4.4+snapshot20161117-6ubuntu2 [30.6 kB]
+Get:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu bionic/main amd64 socat amd64 1.7.3.2-2ubuntu2 [342 kB]
+Get:3 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 cri-tools amd64 1.19.0-00 [11.2 MB]
+Get:4 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubernetes-cni amd64 0.8.7-00 [25.0 MB]
+Get:5 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubelet amd64 1.22.1-00 [21.8 MB]
+Get:6 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubectl amd64 1.22.1-00 [9036 kB]
+Get:7 https://packages.cloud.google.com/apt kubernetes-xenial/main amd64 kubeadm amd64 1.22.1-00 [8717 kB]
+Fetched 76.1 MB in 3s (27.9 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 58232 files and directories currently installed.)
+Removing containernetworking-plugins (100:0.9.1-1) ...
+Selecting previously unselected package conntrack.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 58209 files and directories currently installed.)
+Preparing to unpack .../0-conntrack_1%3a1.4.4+snapshot20161117-6ubuntu2_amd64.deb ...
+Unpacking conntrack (1:1.4.4+snapshot20161117-6ubuntu2) ...
+Selecting previously unselected package cri-tools.
+Preparing to unpack .../1-cri-tools_1.19.0-00_amd64.deb ...
+Unpacking cri-tools (1.19.0-00) ...
+Selecting previously unselected package kubernetes-cni.
+Preparing to unpack .../2-kubernetes-cni_0.8.7-00_amd64.deb ...
+Unpacking kubernetes-cni (0.8.7-00) ...
+Selecting previously unselected package socat.
+Preparing to unpack .../3-socat_1.7.3.2-2ubuntu2_amd64.deb ...
+Unpacking socat (1.7.3.2-2ubuntu2) ...
+Selecting previously unselected package kubelet.
+Preparing to unpack .../4-kubelet_1.22.1-00_amd64.deb ...
+Unpacking kubelet (1.22.1-00) ...
+Selecting previously unselected package kubectl.
+Preparing to unpack .../5-kubectl_1.22.1-00_amd64.deb ...
+Unpacking kubectl (1.22.1-00) ...
+Selecting previously unselected package kubeadm.
+Preparing to unpack .../6-kubeadm_1.22.1-00_amd64.deb ...
+Unpacking kubeadm (1.22.1-00) ...
+Setting up conntrack (1:1.4.4+snapshot20161117-6ubuntu2) ...
+Setting up kubernetes-cni (0.8.7-00) ...
+Setting up cri-tools (1.19.0-00) ...
+Setting up socat (1.7.3.2-2ubuntu2) ...
+Setting up kubelet (1.22.1-00) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /lib/systemd/system/kubelet.service.
+Setting up kubectl (1.22.1-00) ...
+Setting up kubeadm (1.22.1-00) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+[init] Using Kubernetes version: v1.22.1
+[preflight] Running pre-flight checks
+[preflight] Pulling images required for setting up a Kubernetes cluster
+[preflight] This might take a minute or two, depending on the speed of your internet connection
+[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
+[certs] Using certificateDir folder "/etc/kubernetes/pki"
+[certs] Generating "ca" certificate and key
+[certs] Generating "apiserver" certificate and key
+[certs] apiserver serving cert is signed for DNS names [cp kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 172.31.0.130]
+[certs] Generating "apiserver-kubelet-client" certificate and key
+[certs] Generating "front-proxy-ca" certificate and key
+[certs] Generating "front-proxy-client" certificate and key
+[certs] Generating "etcd/ca" certificate and key
+[certs] Generating "etcd/server" certificate and key
+[certs] etcd/server serving cert is signed for DNS names [cp localhost] and IPs [172.31.0.130 127.0.0.1 ::1]
+[certs] Generating "etcd/peer" certificate and key
+[certs] etcd/peer serving cert is signed for DNS names [cp localhost] and IPs [172.31.0.130 127.0.0.1 ::1]
+[certs] Generating "etcd/healthcheck-client" certificate and key
+[certs] Generating "apiserver-etcd-client" certificate and key
+[certs] Generating "sa" key and public key
+[kubeconfig] Using kubeconfig folder "/etc/kubernetes"
+[kubeconfig] Writing "admin.conf" kubeconfig file
+[kubeconfig] Writing "kubelet.conf" kubeconfig file
+[kubeconfig] Writing "controller-manager.conf" kubeconfig file
+[kubeconfig] Writing "scheduler.conf" kubeconfig file
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Starting the kubelet
+[control-plane] Using manifest folder "/etc/kubernetes/manifests"
+[control-plane] Creating static Pod manifest for "kube-apiserver"
+[control-plane] Creating static Pod manifest for "kube-controller-manager"
+[control-plane] Creating static Pod manifest for "kube-scheduler"
+[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
+[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
+[apiclient] All control plane components are healthy after 14.506104 seconds
+[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
+[kubelet] Creating a ConfigMap "kubelet-config-1.22" in namespace kube-system with the configuration for the kubelets in the cluster
+[upload-certs] Skipping phase. Please see --upload-certs
+[mark-control-plane] Marking the node cp as control-plane by adding the labels: [node-role.kubernetes.io/master(deprecated) node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]
+[mark-control-plane] Marking the node cp as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
+[bootstrap-token] Using token: abcdef.0123456789abcdef
+[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
+[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to get nodes
+[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
+[kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.0.130:6443 --token abcdef.0123456789abcdef \
+	--discovery-token-ca-cert-hash sha256:2445ed3d22ef55397ef144409d737118b67e8e7cc1c6c389ba2b2d1935ed7fcb 
+Running the steps explained at the end of the init output for you
+Apply Calico network plugin from ProjectCalico.org
+If you see an error they may have updated the yaml file
+Use a browser, navigate to the site and find the updated file
+configmap/calico-config created
+customresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/caliconodestatuses.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipreservations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/kubecontrollersconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org created
+clusterrole.rbac.authorization.k8s.io/calico-kube-controllers created
+clusterrolebinding.rbac.authorization.k8s.io/calico-kube-controllers created
+clusterrole.rbac.authorization.k8s.io/calico-node created
+clusterrolebinding.rbac.authorization.k8s.io/calico-node created
+daemonset.apps/calico-node created
+serviceaccount/calico-node created
+deployment.apps/calico-kube-controllers created
+serviceaccount/calico-kube-controllers created
+Warning: policy/v1beta1 PodDisruptionBudget is deprecated in v1.21+, unavailable in v1.25+; use policy/v1 PodDisruptionBudget
+poddisruptionbudget.policy/calico-kube-controllers created
+
+alias sudo=sudo 
+alias docker=podman
+--2022-01-24 23:41:20--  https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+Resolving get.helm.sh (get.helm.sh)... 152.195.19.97, 2606:2800:11f:1cb7:261b:1f9c:2074:3c
+Connecting to get.helm.sh (get.helm.sh)|152.195.19.97|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13861119 (13M) [application/x-tar]
+Saving to: ‘helm-v3.7.0-linux-amd64.tar.gz’
+
+     0K .......... .......... .......... .......... ..........  0% 30.1M 0s
+    50K .......... .......... .......... .......... ..........  0% 24.3M 0s
+   100K .......... .......... .......... .......... ..........  1% 20.4M 1s
+   150K .......... .......... .......... .......... ..........  1% 19.8M 1s
+   200K .......... .......... .......... .......... ..........  1% 22.6M 1s
+   250K .......... .......... .......... .......... ..........  2% 28.4M 1s
+   300K .......... .......... .......... .......... ..........  2% 9.74M 1s
+   350K .......... .......... .......... .......... ..........  2% 19.5M 1s
+   400K .......... .......... .......... .......... ..........  3% 21.5M 1s
+   450K .......... .......... .......... .......... ..........  3% 20.0M 1s
+   500K .......... .......... .......... .......... ..........  4% 7.26M 1s
+   550K .......... .......... .......... .......... ..........  4% 42.7M 1s
+   600K .......... .......... .......... .......... ..........  4% 46.4M 1s
+   650K .......... .......... .......... .......... ..........  5% 36.5M 1s
+   700K .......... .......... .......... .......... ..........  5% 33.9M 1s
+   750K .......... .......... .......... .......... ..........  5% 6.87M 1s
+   800K .......... .......... .......... .......... ..........  6% 48.5M 1s
+   850K .......... .......... .......... .......... ..........  6% 41.1M 1s
+   900K .......... .......... .......... .......... ..........  7% 8.79M 1s
+   950K .......... .......... .......... .......... ..........  7% 41.6M 1s
+  1000K .......... .......... .......... .......... ..........  7% 43.1M 1s
+  1050K .......... .......... .......... .......... ..........  8% 9.23M 1s
+  1100K .......... .......... .......... .......... ..........  8% 46.6M 1s
+  1150K .......... .......... .......... .......... ..........  8% 38.2M 1s
+  1200K .......... .......... .......... .......... ..........  9% 7.93M 1s
+  1250K .......... .......... .......... .......... ..........  9% 49.1M 1s
+  1300K .......... .......... .......... .......... ..........  9% 48.4M 1s
+  1350K .......... .......... .......... .......... .......... 10% 37.7M 1s
+  1400K .......... .......... .......... .......... .......... 10% 8.85M 1s
+  1450K .......... .......... .......... .......... .......... 11% 46.1M 1s
+  1500K .......... .......... .......... .......... .......... 11% 40.5M 1s
+  1550K .......... .......... .......... .......... .......... 11% 8.48M 1s
+  1600K .......... .......... .......... .......... .......... 12% 30.0M 1s
+  1650K .......... .......... .......... .......... .......... 12% 8.61M 1s
+  1700K .......... .......... .......... .......... .......... 12% 47.6M 1s
+  1750K .......... .......... .......... .......... .......... 13% 19.1M 1s
+  1800K .......... .......... .......... .......... .......... 13% 40.8M 1s
+  1850K .......... .......... .......... .......... .......... 14% 11.7M 1s
+  1900K .......... .......... .......... .......... .......... 14% 47.3M 1s
+  1950K .......... .......... .......... .......... .......... 14% 7.82M 1s
+  2000K .......... .......... .......... .......... .......... 15% 46.7M 1s
+  2050K .......... .......... .......... .......... .......... 15% 48.9M 1s
+  2100K .......... .......... .......... .......... .......... 15% 8.87M 1s
+  2150K .......... .......... .......... .......... .......... 16% 42.6M 1s
+  2200K .......... .......... .......... .......... .......... 16% 48.0M 1s
+  2250K .......... .......... .......... .......... .......... 16% 8.31M 1s
+  2300K .......... .......... .......... .......... .......... 17% 47.8M 1s
+  2350K .......... .......... .......... .......... .......... 17% 40.7M 1s
+  2400K .......... .......... .......... .......... .......... 18% 34.6M 1s
+  2450K .......... .......... .......... .......... .......... 18% 9.56M 1s
+  2500K .......... .......... .......... .......... .......... 18% 45.7M 1s
+  2550K .......... .......... .......... .......... .......... 19% 8.02M 1s
+  2600K .......... .......... .......... .......... .......... 19% 45.5M 1s
+  2650K .......... .......... .......... .......... .......... 19% 46.7M 1s
+  2700K .......... .......... .......... .......... .......... 20% 37.4M 1s
+  2750K .......... .......... .......... .......... .......... 20% 9.32M 1s
+  2800K .......... .......... .......... .......... .......... 21% 44.8M 1s
+  2850K .......... .......... .......... .......... .......... 21% 37.4M 1s
+  2900K .......... .......... .......... .......... .......... 21% 8.93M 1s
+  2950K .......... .......... .......... .......... .......... 22% 28.9M 1s
+  3000K .......... .......... .......... .......... .......... 22% 8.22M 1s
+  3050K .......... .......... .......... .......... .......... 22% 47.9M 1s
+  3100K .......... .......... .......... .......... .......... 23% 40.5M 1s
+  3150K .......... .......... .......... .......... .......... 23% 8.50M 1s
+  3200K .......... .......... .......... .......... .......... 24% 48.0M 1s
+  3250K .......... .......... .......... .......... .......... 24% 40.2M 1s
+  3300K .......... .......... .......... .......... .......... 24% 8.23M 1s
+  3350K .......... .......... .......... .......... .......... 25% 34.9M 1s
+  3400K .......... .......... .......... .......... .......... 25% 39.0M 1s
+  3450K .......... .......... .......... .......... .......... 25% 11.0M 1s
+  3500K .......... .......... .......... .......... .......... 26% 39.5M 1s
+  3550K .......... .......... .......... .......... .......... 26%  113M 1s
+  3600K .......... .......... .......... .......... .......... 26%  146M 1s
+  3650K .......... .......... .......... .......... .......... 27%  154M 1s
+  3700K .......... .......... .......... .......... .......... 27%  153M 0s
+  3750K .......... .......... .......... .......... .......... 28%  117M 0s
+  3800K .......... .......... .......... .......... .......... 28% 78.6M 0s
+  3850K .......... .......... .......... .......... .......... 28% 5.93M 0s
+  3900K .......... .......... .......... .......... .......... 29% 24.8M 0s
+  3950K .......... .......... .......... .......... .......... 29% 7.16M 0s
+  4000K .......... .......... .......... .......... .......... 29% 47.7M 0s
+  4050K .......... .......... .......... .......... .......... 30% 33.7M 0s
+  4100K .......... .......... .......... .......... .......... 30% 8.90M 0s
+  4150K .......... .......... .......... .......... .......... 31% 41.8M 0s
+  4200K .......... .......... .......... .......... .......... 31% 40.1M 0s
+  4250K .......... .......... .......... .......... .......... 31% 36.6M 0s
+  4300K .......... .......... .......... .......... .......... 32% 5.45M 0s
+  4350K .......... .......... .......... .......... .......... 32% 39.5M 0s
+  4400K .......... .......... .......... .......... .......... 32% 40.1M 0s
+  4450K .......... .......... .......... .......... .......... 33% 37.9M 0s
+  4500K .......... .......... .......... .......... .......... 33% 34.0M 0s
+  4550K .......... .......... .......... .......... .......... 33% 7.39M 0s
+  4600K .......... .......... .......... .......... .......... 34% 29.8M 0s
+  4650K .......... .......... .......... .......... .......... 34% 39.7M 0s
+  4700K .......... .......... .......... .......... .......... 35% 9.16M 0s
+  4750K .......... .......... .......... .......... .......... 35% 33.5M 0s
+  4800K .......... .......... .......... .......... .......... 35% 6.06M 0s
+  4850K .......... .......... .......... .......... .......... 36% 46.3M 0s
+  4900K .......... .......... .......... .......... .......... 36% 33.4M 0s
+  4950K .......... .......... .......... .......... .......... 36% 36.5M 0s
+  5000K .......... .......... .......... .......... .......... 37% 4.37M 0s
+  5050K .......... .......... .......... .......... .......... 37% 49.3M 0s
+  5100K .......... .......... .......... .......... .......... 38% 29.7M 0s
+  5150K .......... .......... .......... .......... .......... 38% 35.1M 0s
+  5200K .......... .......... .......... .......... .......... 38% 56.5M 0s
+  5250K .......... .......... .......... .......... .......... 39% 82.5M 0s
+  5300K .......... .......... .......... .......... .......... 39%  154M 0s
+  5350K .......... .......... .......... .......... .......... 39%  127M 0s
+  5400K .......... .......... .......... .......... .......... 40%  156M 0s
+  5450K .......... .......... .......... .......... .......... 40% 5.94M 0s
+  5500K .......... .......... .......... .......... .......... 41% 32.6M 0s
+  5550K .......... .......... .......... .......... .......... 41% 31.6M 0s
+  5600K .......... .......... .......... .......... .......... 41% 9.41M 0s
+  5650K .......... .......... .......... .......... .......... 42% 7.92M 0s
+  5700K .......... .......... .......... .......... .......... 42% 47.8M 0s
+  5750K .......... .......... .......... .......... .......... 42% 45.0M 0s
+  5800K .......... .......... .......... .......... .......... 43% 39.8M 0s
+  5850K .......... .......... .......... .......... .......... 43% 39.0M 0s
+  5900K .......... .......... .......... .......... .......... 43% 9.04M 0s
+  5950K .......... .......... .......... .......... .......... 44% 33.6M 0s
+  6000K .......... .......... .......... .......... .......... 44% 29.1M 0s
+  6050K .......... .......... .......... .......... .......... 45% 8.96M 0s
+  6100K .......... .......... .......... .......... .......... 45% 41.5M 0s
+  6150K .......... .......... .......... .......... .......... 45% 35.2M 0s
+  6200K .......... .......... .......... .......... .......... 46% 8.88M 0s
+  6250K .......... .......... .......... .......... .......... 46% 30.2M 0s
+  6300K .......... .......... .......... .......... .......... 46% 8.77M 0s
+  6350K .......... .......... .......... .......... .......... 47% 36.2M 0s
+  6400K .......... .......... .......... .......... .......... 47% 33.5M 0s
+  6450K .......... .......... .......... .......... .......... 48% 10.7M 0s
+  6500K .......... .......... .......... .......... .......... 48% 40.0M 0s
+  6550K .......... .......... .......... .......... .......... 48% 6.20M 0s
+  6600K .......... .......... .......... .......... .......... 49% 42.1M 0s
+  6650K .......... .......... .......... .......... .......... 49% 40.1M 0s
+  6700K .......... .......... .......... .......... .......... 49% 66.1M 0s
+  6750K .......... .......... .......... .......... .......... 50%  123M 0s
+  6800K .......... .......... .......... .......... .......... 50%  146M 0s
+  6850K .......... .......... .......... .......... .......... 50%  144M 0s
+  6900K .......... .......... .......... .......... .......... 51%  164M 0s
+  6950K .......... .......... .......... .......... .......... 51%  136M 0s
+  7000K .......... .......... .......... .......... .......... 52%  147M 0s
+  7050K .......... .......... .......... .......... .......... 52%  132M 0s
+  7100K .......... .......... .......... .......... .......... 52% 81.3M 0s
+  7150K .......... .......... .......... .......... .......... 53%  123M 0s
+  7200K .......... .......... .......... .......... .......... 53%  122M 0s
+  7250K .......... .......... .......... .......... .......... 53% 5.66M 0s
+  7300K .......... .......... .......... .......... .......... 54% 49.2M 0s
+  7350K .......... .......... .......... .......... .......... 54% 29.4M 0s
+  7400K .......... .......... .......... .......... .......... 55% 9.58M 0s
+  7450K .......... .......... .......... .......... .......... 55%  133M 0s
+  7500K .......... .......... .......... .......... .......... 55%  155M 0s
+  7550K .......... .......... .......... .......... .......... 56%  129M 0s
+  7600K .......... .......... .......... .......... .......... 56%  155M 0s
+  7650K .......... .......... .......... .......... .......... 56%  144M 0s
+  7700K .......... .......... .......... .......... .......... 57%  149M 0s
+  7750K .......... .......... .......... .......... .......... 57%  138M 0s
+  7800K .......... .......... .......... .......... .......... 57%  110M 0s
+  7850K .......... .......... .......... .......... .......... 58% 93.6M 0s
+  7900K .......... .......... .......... .......... .......... 58% 83.4M 0s
+  7950K .......... .......... .......... .......... .......... 59%  127M 0s
+  8000K .......... .......... .......... .......... .......... 59% 12.6M 0s
+  8050K .......... .......... .......... .......... .......... 59% 55.2M 0s
+  8100K .......... .......... .......... .......... .......... 60% 13.8M 0s
+  8150K .......... .......... .......... .......... .......... 60% 14.5M 0s
+  8200K .......... .......... .......... .......... .......... 60% 49.5M 0s
+  8250K .......... .......... .......... .......... .......... 61% 36.0M 0s
+  8300K .......... .......... .......... .......... .......... 61% 55.7M 0s
+  8350K .......... .......... .......... .......... .......... 62% 8.88M 0s
+  8400K .......... .......... .......... .......... .......... 62% 14.8M 0s
+  8450K .......... .......... .......... .......... .......... 62% 97.8M 0s
+  8500K .......... .......... .......... .......... .......... 63% 14.0M 0s
+  8550K .......... .......... .......... .......... .......... 63% 45.2M 0s
+  8600K .......... .......... .......... .......... .......... 63% 16.4M 0s
+  8650K .......... .......... .......... .......... .......... 64%  140M 0s
+  8700K .......... .......... .......... .......... .......... 64%  148M 0s
+  8750K .......... .......... .......... .......... .......... 65%  130M 0s
+  8800K .......... .......... .......... .......... .......... 65%  157M 0s
+  8850K .......... .......... .......... .......... .......... 65%  161M 0s
+  8900K .......... .......... .......... .......... .......... 66% 71.7M 0s
+  8950K .......... .......... .......... .......... .......... 66%  143M 0s
+  9000K .......... .......... .......... .......... .......... 66%  161M 0s
+  9050K .......... .......... .......... .......... .......... 67%  104M 0s
+  9100K .......... .......... .......... .......... .......... 67%  154M 0s
+  9150K .......... .......... .......... .......... .......... 67% 34.7M 0s
+  9200K .......... .......... .......... .......... .......... 68% 6.97M 0s
+  9250K .......... .......... .......... .......... .......... 68% 48.4M 0s
+  9300K .......... .......... .......... .......... .......... 69% 44.6M 0s
+  9350K .......... .......... .......... .......... .......... 69% 29.9M 0s
+  9400K .......... .......... .......... .......... .......... 69% 5.62M 0s
+  9450K .......... .......... .......... .......... .......... 70% 45.3M 0s
+  9500K .......... .......... .......... .......... .......... 70% 34.0M 0s
+  9550K .......... .......... .......... .......... .......... 70% 32.6M 0s
+  9600K .......... .......... .......... .......... .......... 71% 9.23M 0s
+  9650K .......... .......... .......... .......... .......... 71%  127M 0s
+  9700K .......... .......... .......... .......... .......... 72%  125M 0s
+  9750K .......... .......... .......... .......... .......... 72%  120M 0s
+  9800K .......... .......... .......... .......... .......... 72%  139M 0s
+  9850K .......... .......... .......... .......... .......... 73%  145M 0s
+  9900K .......... .......... .......... .......... .......... 73% 87.3M 0s
+  9950K .......... .......... .......... .......... .......... 73%  127M 0s
+ 10000K .......... .......... .......... .......... .......... 74%  164M 0s
+ 10050K .......... .......... .......... .......... .......... 74%  155M 0s
+ 10100K .......... .......... .......... .......... .......... 74%  154M 0s
+ 10150K .......... .......... .......... .......... .......... 75% 83.0M 0s
+ 10200K .......... .......... .......... .......... .......... 75%  150M 0s
+ 10250K .......... .......... .......... .......... .......... 76%  161M 0s
+ 10300K .......... .......... .......... .......... .......... 76%  157M 0s
+ 10350K .......... .......... .......... .......... .......... 76%  115M 0s
+ 10400K .......... .......... .......... .......... .......... 77%  148M 0s
+ 10450K .......... .......... .......... .......... .......... 77% 77.4M 0s
+ 10500K .......... .......... .......... .......... .......... 77%  162M 0s
+ 10550K .......... .......... .......... .......... .......... 78%  143M 0s
+ 10600K .......... .......... .......... .......... .......... 78%  160M 0s
+ 10650K .......... .......... .......... .......... .......... 79%  163M 0s
+ 10700K .......... .......... .......... .......... .......... 79% 99.3M 0s
+ 10750K .......... .......... .......... .......... .......... 79%  124M 0s
+ 10800K .......... .......... .......... .......... .......... 80%  165M 0s
+ 10850K .......... .......... .......... .......... .......... 80%  157M 0s
+ 10900K .......... .......... .......... .......... .......... 80%  168M 0s
+ 10950K .......... .......... .......... .......... .......... 81%  139M 0s
+ 11000K .......... .......... .......... .......... .......... 81% 6.28M 0s
+ 11050K .......... .......... .......... .......... .......... 82%  129M 0s
+ 11100K .......... .......... .......... .......... .......... 82% 98.5M 0s
+ 11150K .......... .......... .......... .......... .......... 82% 89.3M 0s
+ 11200K .......... .......... .......... .......... .......... 83%  137M 0s
+ 11250K .......... .......... .......... .......... .......... 83%  118M 0s
+ 11300K .......... .......... .......... .......... .......... 83%  155M 0s
+ 11350K .......... .......... .......... .......... .......... 84% 99.0M 0s
+ 11400K .......... .......... .......... .......... .......... 84%  162M 0s
+ 11450K .......... .......... .......... .......... .......... 84%  162M 0s
+ 11500K .......... .......... .......... .......... .......... 85%  110M 0s
+ 11550K .......... .......... .......... .......... .......... 85% 72.5M 0s
+ 11600K .......... .......... .......... .......... .......... 86%  120M 0s
+ 11650K .......... .......... .......... .......... .......... 86% 78.4M 0s
+ 11700K .......... .......... .......... .......... .......... 86% 68.1M 0s
+ 11750K .......... .......... .......... .......... .......... 87% 94.0M 0s
+ 11800K .......... .......... .......... .......... .......... 87% 78.9M 0s
+ 11850K .......... .......... .......... .......... .......... 87%  103M 0s
+ 11900K .......... .......... .......... .......... .......... 88% 57.7M 0s
+ 11950K .......... .......... .......... .......... .......... 88% 5.35M 0s
+ 12000K .......... .......... .......... .......... .......... 89% 81.3M 0s
+ 12050K .......... .......... .......... .......... .......... 89% 81.1M 0s
+ 12100K .......... .......... .......... .......... .......... 89%  118M 0s
+ 12150K .......... .......... .......... .......... .......... 90% 70.5M 0s
+ 12200K .......... .......... .......... .......... .......... 90%  162M 0s
+ 12250K .......... .......... .......... .......... .......... 90%  148M 0s
+ 12300K .......... .......... .......... .......... .......... 91%  156M 0s
+ 12350K .......... .......... .......... .......... .......... 91% 90.5M 0s
+ 12400K .......... .......... .......... .......... .......... 91% 5.61M 0s
+ 12450K .......... .......... .......... .......... .......... 92% 43.4M 0s
+ 12500K .......... .......... .......... .......... .......... 92% 91.2M 0s
+ 12550K .......... .......... .......... .......... .......... 93% 96.9M 0s
+ 12600K .......... .......... .......... .......... .......... 93% 78.9M 0s
+ 12650K .......... .......... .......... .......... .......... 93%  154M 0s
+ 12700K .......... .......... .......... .......... .......... 94%  157M 0s
+ 12750K .......... .......... .......... .......... .......... 94% 7.66M 0s
+ 12800K .......... .......... .......... .......... .......... 94%  101M 0s
+ 12850K .......... .......... .......... .......... .......... 95% 97.8M 0s
+ 12900K .......... .......... .......... .......... .......... 95%  114M 0s
+ 12950K .......... .......... .......... .......... .......... 96% 78.4M 0s
+ 13000K .......... .......... .......... .......... .......... 96%  115M 0s
+ 13050K .......... .......... .......... .......... .......... 96%  135M 0s
+ 13100K .......... .......... .......... .......... .......... 97%  143M 0s
+ 13150K .......... .......... .......... .......... .......... 97%  131M 0s
+ 13200K .......... .......... .......... .......... .......... 97%  142M 0s
+ 13250K .......... .......... .......... .......... .......... 98% 11.7M 0s
+ 13300K .......... .......... .......... .......... .......... 98%  146M 0s
+ 13350K .......... .......... .......... .......... .......... 98%  143M 0s
+ 13400K .......... .......... .......... .......... .......... 99%  160M 0s
+ 13450K .......... .......... .......... .......... .......... 99%  148M 0s
+ 13500K .......... .......... .......... ......               100%  140M=0.5s
+
+2022-01-24 23:41:20 (25.8 MB/s) - ‘helm-v3.7.0-linux-amd64.tar.gz’ saved [13861119/13861119]
+
+
+You should see this node in the output below
+It can take up to a mintue for node to show Ready status
+
+NAME   STATUS   ROLES                  AGE   VERSION
+cp     Ready    control-plane,master   19s   v1.22.1
+
+
+Script finished. Move to the next step

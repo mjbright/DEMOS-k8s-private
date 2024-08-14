@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cm-example
+  labels:
+    app: cm-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cm-example
+  template:
+    metadata:
+      labels:
+        app: cm-example
+    spec:
+      initContainers:
+        - name: init1
+          image: alpine
+          command: ['echo', '$(KEY2)']
+          env:
+          - name: KEY2
+            valueFrom:
+              configMapKeyRef:
+                name: datacm
+                key:  key2
+
+      containers:
+        - name: cm-example
+          image: mjbright/k8s-demo:alpine1
+          ports:
+            - containerPort: 80
+
+          volumeMounts:
+            - name: cm
+              mountPath: /tmp/etc/hosts
+              subPath: hosts
+          env:
+          - name: KEY1
+            valueFrom:
+              configMapKeyRef:
+                name: datacm
+                key:  key1
+       
+      volumes:
+        - name: cm
+          configMap:
+            name: datacm

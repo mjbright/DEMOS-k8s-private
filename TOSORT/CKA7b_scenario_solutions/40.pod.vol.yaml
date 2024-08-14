@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: vol1
+  name: vol1
+spec:
+  containers:
+  - image: nginx
+    name: vol1
+
+    command: ['/bin/sh', '-c', 'cd /tmp/ed; date >> container.date.log; cat container.date.log; sleep 7']
+    
+    volumeMounts:
+    - mountPath: /tmp/ed
+      name: ed
+  volumes:
+  - name: ed
+    emptyDir: {}

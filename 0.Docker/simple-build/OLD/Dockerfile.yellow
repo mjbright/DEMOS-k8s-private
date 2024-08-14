@@ -1,0 +1,31 @@
+
+FROM golang:alpine
+
+WORKDIR /app
+
+ADD . /app
+
+RUN cd /app && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -ldflags '-w' -o demo-binary main.go
+
+RUN ls -al  /app/demo-binary; ls -alh /app/demo-binary; /app/demo-binary --version
+
+ADD static/css /app/static/css
+ADD static/img /app/static/img
+ADD static/index.html /app/static/index.html
+
+ENV IMAGE_NAME_VERSION="mjbright/docker-demo:1"
+ENV IMAGE_VERSION="1"
+ENV PICTURE_PATH_BASE="static/img/docker_yellow"
+ENV PICTURE_COLOUR="yellow"
+
+EXPOSE 80
+
+# With this form, we would need to override entrypoint if we want a shell (with alpine version):
+#     docker run --entrypoint /bin/sh --rm -it mjbright/ckad-demo:alpine1
+#   ENTRYPOINT ["/app/demo-binary"]
+#   CMD ["/app/demo-binary","--listen",":80","-l","0","-r","0"]
+#   Where CMD is "--listen :$PORT -l 10 -r 10"
+
+# With this form, we can easily overwrite the command:
+CMD ["/app/demo-binary","--listen",":80","-l","0","-r","0"]
+

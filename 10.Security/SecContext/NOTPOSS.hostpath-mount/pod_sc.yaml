@@ -1,0 +1,29 @@
+
+NO NOT POSSIBLE WITH securityContext - try VAP ??
+(used to be part of PSP maybe)
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: host-mount
+  name: host-mount
+spec:
+  containers:
+  - image: alpine
+    name: host-mount
+    command: ["/bin/sleep", "36000"]
+    securityContext:
+      privileged: false
+      allowPrivilegeEscalation: false
+
+    volumeMounts:
+    - name: host
+      mountPath: /myhost
+
+  volumes:
+    - name: host
+      hostPath:
+        path: /var/myhost
+        type: DirectoryOrCreate
+        

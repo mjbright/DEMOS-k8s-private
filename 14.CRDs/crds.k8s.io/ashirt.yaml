@@ -1,0 +1,12 @@
+apiVersion: stable.example.com/v1
+kind: Shirt
+metadata:
+  labels:
+    my: what-a-lovely-shirt
+  name: my-first-shirt
+
+spec:
+  size: large
+  material: cotton
+  color:    red
+    

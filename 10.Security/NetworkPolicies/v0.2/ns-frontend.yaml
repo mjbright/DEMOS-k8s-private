@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2022-05-20T06:37:30Z"
+  labels:
+    app: frontend
+    kubernetes.io/metadata.name: frontend
+  name: frontend
+  resourceVersion: "335557"
+  uid: 2880a090-ddd1-4770-aaa4-edd016849760
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

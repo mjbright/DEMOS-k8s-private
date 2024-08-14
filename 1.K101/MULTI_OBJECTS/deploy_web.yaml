@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  labels:
+    app: web
+  name: web
+  namespace: test2
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: web
+
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:2
+        name: k8s-demo

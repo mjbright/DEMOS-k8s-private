@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kdemo
+  name: kdemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kdemo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kdemo
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:1
+        name: k8s-demo
+        resources: {}
+status: {}

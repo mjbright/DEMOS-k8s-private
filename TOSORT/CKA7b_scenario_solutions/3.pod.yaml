@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: tester
+  name: tester
+spec:
+  containers:
+  - image: alpine:latest
+    name: tester
+    command: ['/bin/sleep', '36000'] # 10 hours ... zzz ...

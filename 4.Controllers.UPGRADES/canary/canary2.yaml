@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: canary2
+  name: canary2
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: canary2
+
+  template:
+    metadata:
+      labels:
+        app: canary2
+        service: myservice
+
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:2
+        name: k8s-demo

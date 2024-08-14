@@ -1,0 +1,11 @@
+
+apiVersion: stable.example.com/v1
+kind: CronTab
+metadata:
+  name: clean-every-minute
+spec:
+  cronSpec: "* * * * *"
+  image: cleanup:v1
+  replicas: 1
+
+

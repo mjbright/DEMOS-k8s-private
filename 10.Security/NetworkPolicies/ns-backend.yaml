@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2022-05-20T06:37:41Z"
+  labels:
+    kubernetes.io/metadata.name: backend
+  name: backend
+  resourceVersion: "334077"
+  uid: ac086eed-6fd5-457a-9933-964c1d8c8ba8
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: web
+  name: web
+spec:
+  sessionAffinity: None
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+
+
+  selector:
+    app: web
+
+

@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job1
+spec:
+  completions: 5
+  parallelism: 2
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - image: alpine
+        name: job1
+        command: ['/bin/sh', '-c', '/bin/sleep 5; exit 1']

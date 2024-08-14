@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: test-daemonset
+  labels:
+    app: test-dset
+spec:
+  selector:
+    matchLabels:
+      app: test-dset
+
+  template:
+    metadata:
+      labels:
+        app: test-dset
+    spec:
+
+      containers:
+        - name: test-dset
+          image: mjbright/k8s-demo:alpine1
+          command: ['/bin/sh', '-c', 'while true; do echo [host $(NODE_NAME)] [pod $(hostname)]: $(date) >> /mnt/daemonset-date.log; sleep 1; done']
+
+        # Get NODE_NAME via downwardAPI - used in above command
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+
+          ports:
+            - containerPort: 80
+
+          volumeMounts:
+          - mountPath: /mnt
+            name: pvc-vol
+
+      volumes:
+      - name: pvc-vol
+        persistentVolumeClaim:
+          claimName: test-daemonset-claim
+

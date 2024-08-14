@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: run-on-node2
+  name: run-on-node2
+spec:
+  nodeSelector:
+    usage: Prod
+    zone: west
+  containers:
+  - image: alpine
+    name: run-on-node2
+    command: ['/bin/sleep', '36000']
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: in-east
+  name: in-east
+spec:
+  nodeSelector:
+    zone: east
+  containers:
+  - image: alpine
+    name: in-east
+    command: ['/bin/sleep', '36000']
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: run-on-forbidden
+  name: run-on-forbidden
+spec:
+  nodeSelector:
+    usage: forbidden
+  containers:
+  - image: alpine
+    name: run-on-forbidden
+    command: ['/bin/sleep', '36000']
+
+

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: test2
+  name: test2
+spec:
+  containers:
+  - image: mjbright/k8s-demo:1
+    name: test2

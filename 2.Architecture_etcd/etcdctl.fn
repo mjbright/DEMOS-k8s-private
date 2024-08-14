@@ -1,0 +1,48 @@
+
+# kubectl -n kube-system exec -it etcd-cp -- sh -c "\
+#     ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl endpoint health"
+
+# Function to simplify use of etcdctl from cp Node
+# - set POD to the Pod name for etcd on a Node:
+# - then try one of the commands:
+#      etcdctl member list
+#      etcdctl member list -w table
+#      etcdctl member list -w table
+#      etcdctl endpoint health
+#      etcdctl endpoint status -w table
+#
+function etcdctl {
+    # SET this value as appropriate:
+    POD=etcd-cp
+    #POD=etcd-secondcp
+    #POD=etcd-thirdcp
+
+    kubectl -n kube-system exec -it $POD -- sh -c "ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl $*"
+}
+
+# Function to simplify use of etcdctl from cp Node showing all endpoints status:
+# - set POD to the Pod name for etcd on a Node:
+# - set ENDPOINTS list
+# - then try one of the commands:
+#      etcdctl_all member list
+#      etcdctl_all member list -w table
+#      etcdctl_all member list -w table
+#      etcdctl_all endpoint health
+#      etcdctl_all endpoint status -w table
+#
+function etcdctl_all {
+    # SET this value as appropriate:
+    POD=etcd-cp
+    #POD=etcd-secondcp
+    #POD=etcd-thirdcp
+
+    # SET this value as appropriate: use the private IP addresses of all your cp Nodes:
+    ENDPOINTS="10.0.142.211:2379,10.0.130.34:2379,10.0.132.87:2379"
+
+    kubectl -n kube-system exec -it $POD -- sh -c "ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl --endpoints $ENDPOINTS $*"
+}
+
+
+
+
+

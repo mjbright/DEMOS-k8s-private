@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: zonepod
+  name: zonepod
+spec:
+  nodeSelector:
+    usage: forbidden
+  containers:
+  - image: nginx
+    name: zonepod

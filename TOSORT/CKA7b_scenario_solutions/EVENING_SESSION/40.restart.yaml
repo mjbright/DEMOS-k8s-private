@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: restart
+  name: restart
+spec:
+  containers:
+  - image: alpine
+    name: restart
+    command: ['/bin/sh', '-c', 'cd /tmp/ed; date >> container.date.log; cat container.date.log; sleep 7']
+
+    volumeMounts:
+    - name: ed
+      mountPath: /tmp/ed
+
+  volumes:
+  - name: ed
+    emptyDir: {}

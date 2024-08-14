@@ -1,0 +1,8 @@
+
+#IMAGE=mjbright/simple1
+IMAGE=gcr.io/mjbright-gcr/simple1
+
+NAME=simple1
+PORT=8881
+
+

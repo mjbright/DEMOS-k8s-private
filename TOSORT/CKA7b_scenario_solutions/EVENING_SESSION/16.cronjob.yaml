@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron1
+spec:
+
+  jobTemplate:
+    metadata:
+      name: cron1
+    spec:
+
+      template:
+        metadata:
+        spec:
+          containers:
+          - image: alpine
+            name: cron1
+            command: ['/bin/sleep', '5']
+          restartPolicy: OnFailure
+
+  schedule: '*/2 * * * *'
+

@@ -1,0 +1,50 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-node-aff
+  name: web-node-aff
+
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: web-node-aff
+
+  template:
+    metadata:
+      labels:
+        app: web-node-aff
+
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:1
+        name: k8s-demo
+
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: region
+                operator: Gt
+                values:
+                - "0"
+
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: region
+                operator: Lt
+                values:
+                - "10"
+
+
+
+
+      nodeSelector:
+        region: "1"
+
+    

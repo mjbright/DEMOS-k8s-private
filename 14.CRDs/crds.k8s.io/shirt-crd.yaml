@@ -1,0 +1,72 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: shirts.stable.example.com
+
+spec:
+  group: stable.example.com
+  scope: Namespaced
+
+  names:
+    plural: shirts
+    singular: shirt
+    kind: Shirt
+    shortNames:
+    - sht
+    - shrt
+
+  versions:
+
+  - name: v1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              color:
+                type: string
+              size:
+                type: string
+              material:
+                type: string
+              necks:
+                type: integer
+                default: 2
+              arms:
+                type: integer
+                minimum: 0
+                maximum: 3
+                default: 2
+
+    selectableFields:
+    - jsonPath: .spec.color
+    - jsonPath: .spec.size
+
+    # Columns to show in 'kubectl get shirts' output:
+    # Note: priority > 0 requires "-o wide" option
+    additionalPrinterColumns:
+    - jsonPath: .spec.color
+      name: Color
+      type: string
+      priority: 0
+    - jsonPath: .spec.size
+      name: Size
+      type: string
+      priority: 0
+    - jsonPath: .spec.material
+      name: Material
+      type: string
+      priority: 1
+    - jsonPath: .spec.arms
+      name: Arms
+      type: integer
+      priority: 1
+    - jsonPath: .spec.necks
+      name: Necks
+      type: integer
+      priority: 1
+

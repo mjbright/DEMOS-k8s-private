@@ -1,0 +1,17 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: ping
+  name: ping
+spec:
+  containers:
+  - image: alpine
+    name: ping
+    command: ["/bin/sleep", "36000"]
+    securityContext:
+      capabilities:
+        # Probably unneeded unless running CRI-O as a container engine:
+        add: ["NET_RAW"]
+        

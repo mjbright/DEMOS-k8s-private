@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kdemo-pod-dns
+  name: kdemo-pod-dns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kdemo-pod-dns
+  template:
+    metadata:
+      labels:
+        app: kdemo-pod-dns
+    spec:
+      hostname: kdemo-pod
+      subdomain: pod-dns
+      containers:
+      - image: mjbright/k8s-demo:1
+        name: k8s-demo

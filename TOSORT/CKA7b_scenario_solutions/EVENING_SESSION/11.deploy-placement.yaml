@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: placement
+  name: placement
+spec:
+
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: placement
+  template:
+    metadata:
+      labels:
+        app: placement
+    spec:
+      nodeSelector:
+        group: dev
+
+      containers:
+      - image: nginx
+        name: nginx

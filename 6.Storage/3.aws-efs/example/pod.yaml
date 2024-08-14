@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: efs-test
+spec:
+  containers:
+
+  - name: efs-test
+    image: mjbright/k8s-demo:alpine1
+    ports:
+    - containerPort: 80
+
+    volumeMounts:
+    - name: pvc-vol
+      mountPath: /data
+
+  volumes:
+  - name: pvc-vol
+    persistentVolumeClaim:
+      claimName: efs

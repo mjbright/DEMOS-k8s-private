@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: zonedset
+  name: zonedset
+spec:
+  selector:
+    matchLabels:
+      app: zonedset
+  template:
+    metadata:
+      labels:
+        app: zonedset
+    spec:
+      nodeSelector:
+        zone: east
+
+      containers:
+      - image: nginx
+        name: nginx
+

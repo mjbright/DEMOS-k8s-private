@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: testpod2
+    mike: was-here
+  name: testpod2
+  namespace: test2
+
+
+spec:
+  containers:
+  - image: mjbright/k8s-demo:alpine1
+    name: testpod2-1
+
+  - image: mjbright/k8s-demo:alpine1
+    name: testpod2-2
+    command: ['/bin/sleep', 'infinity']
+
+
