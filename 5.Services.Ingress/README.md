@@ -1,4 +1,18 @@
 
+# NOTE:
+
+Can be **really slow** to setup
+- ingress-nginx image download
+- some initialization of the controller ??
+
+Creating Ingress rules initially gives an error:
+
+    $ kubectl create -f ingress.yaml
+    Error from server (InternalError): error when creating "ingress.yaml": Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io": failed to call webhook: Post "https://myingress-ingress-nginx-controller-admission.nginx-ingress.svc:443/networking/v1/ingresses?timeout=10s": dial tcp 10.111.249.182:443: connect: connection refused
+
+After about 5 minutes, it's all good.
+
+
 # TODO:
 
 After cluster creation, determine my control node ip address (of trainer-ckad-0.mjbright.click for example)
