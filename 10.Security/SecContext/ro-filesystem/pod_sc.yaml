@@ -10,6 +10,7 @@ spec:
   - image: alpine
     name: ro-plus-emptydir
     command: ["/bin/sleep", "36000"]
+
     securityContext:
       readOnlyRootFilesystem: true
 
