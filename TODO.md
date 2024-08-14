@@ -13,6 +13,8 @@
 - kubectl get pods -n kube-system cilium-86prj -o jsonpath='{.spec.initContainers[*].name}'; echo
 - kubectl get pods -n kube-system cilium-86prj -o jsonpath='{.spec.containers[*].name}'; echo
 
+### To review/merge demos into mjbright/k8s-scenarios
+
 # Repertory demos with notes
 
 
@@ -40,6 +42,8 @@
 ### 5.Services.Ingress
 - TBD
 
+- Helm Chart uses ngingx/php and CertManager: https://github.com/SickHub/charts/tree/main/sickhub/nginx-phpfpm
+
 ### 5.Services.Mesh.Linkerd
 - TBD
 
@@ -49,14 +53,30 @@
 ### 6.Storage
 - TBD
 
+- Interesting idea https://github.com/SickHub/charts/tree/main/sickhub/cronjobs
+  - uses ConfigMaps to store scripts for a CronJob
+
+- Create Secrets examples
+https://blog.gitguardian.com/the-runtime-secrets-security-gap/
+
 ### 7.Helm
 - TBD
+
+- LOOK AT: https://github.com/SickHub/charts
+- Create my own helm charts on github
 
 ### 7b.Kustomize
 - TBD
 
 ### 10.Security
 - TBD
+
+- Admission Controller examples
+https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
+
+- Create PodSecurityStandards demo (difficult to understand config)
+https://kubernetes.io/docs/concepts/security/pod-security-standards/
+https://stackoverflow.com/questions/72364704/no-matches-for-kind-admissionconfiguration-in-version-apiserver-config-k8s-io
 
 ### 12.Scheduling
 - TBD
