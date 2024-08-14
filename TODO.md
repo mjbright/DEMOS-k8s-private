@@ -1,4 +1,18 @@
 
+# To add
+
+- More yaml examples
+- yaml validators, e.g.
+  - https://github.com/yannh/kubeconform
+  - https://validkube.com/ ( https://github.com/komodorio/validkube )
+    - very interesting as online & includes trivy, polaris, kubescape ...
+- kubectl get -o examples (and some piping into jq and/or python)
+- json patch examples
+
+### Simple kubectl get -o examples:
+- kubectl get pods -n kube-system cilium-86prj -o jsonpath='{.spec.initContainers[*].name}'; echo
+- kubectl get pods -n kube-system cilium-86prj -o jsonpath='{.spec.containers[*].name}'; echo
+
 # Repertory demos with notes
 
 
