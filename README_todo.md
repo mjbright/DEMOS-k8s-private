@@ -1,4 +1,13 @@
 
+# Release related demos
+
+- Start with Kubernetes 1.31 features
+- Then move forward/backward ...
+- Use this as
+  - a learning exercise
+  - to make my notes on each release
+  - to create demos to integrate in specific modules below
+
 # To add
 
 - Plans per module/chapter below
