@@ -155,6 +155,14 @@ Fully script up my own demo
 - of LFS458 HA ( plus kube-vip )
 - own version using nginx ( plus kube-vip )
 
+### N.Exam
+
+Check curriculum
+- https://github.com/cncf/curriculum
+- CKAD-Exercises
+- killer.sh (via LF Training Portal)
+- killercoda.
+
 ### N.Misc
 - TBD: krew, k9s, konform
 
