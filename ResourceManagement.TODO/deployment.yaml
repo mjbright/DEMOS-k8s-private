@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: web
+  namespace: test-resource-mgmt
+  labels:
+    app: web
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:1
+        name: k8s-demo
+
+        resources:
+          limit:
