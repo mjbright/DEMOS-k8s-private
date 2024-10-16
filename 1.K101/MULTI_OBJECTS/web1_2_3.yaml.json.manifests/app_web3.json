@@ -1,0 +1,38 @@
+{
+    "kind": "Deployment",
+    "apiVersion": "apps/v1",
+    "metadata": {
+        "name": "web3",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "web3"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "matchLabels": {
+                "app": "web3"
+            }
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "web3"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "k8s-demo",
+                        "image": "mjbright/k8s-demo:3",
+                        "resources": {}
+                    }
+                ]
+            }
+        },
+        "strategy": {}
+    },
+    "status": {}
+}

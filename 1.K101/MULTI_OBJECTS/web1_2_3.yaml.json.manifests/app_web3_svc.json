@@ -1,0 +1,26 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "web3",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "web3"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 80
+            }
+        ],
+        "selector": {
+            "app": "web3"
+        }
+    },
+    "status": {
+        "loadBalancer": {}
+    }
+}
