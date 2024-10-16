@@ -19,6 +19,7 @@ spec:
     spec:
       containers:
       - image: mjbright/flask-web:v1
+        imagePullPolicy: Always
         name: flask-app
         ports:
         - containerPort: 5000
