@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    run: redis
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+      meta.helm.sh/release-name: v0.4
+      meta.helm.sh/release-namespace: default
+
+spec:
+  selector:
+    matchLabels:
+      run: redis
+
+  template:
+    metadata:
+      labels:
+        run: redis
+
+    spec:
+      containers:
+      - image: redis:latest
+        name: redis
+        ports:
+        - containerPort: 6379

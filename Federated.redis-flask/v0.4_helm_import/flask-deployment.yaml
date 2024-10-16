@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+  labels:
+    run: flask-app
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+      meta.helm.sh/release-name: v0.4
+      meta.helm.sh/release-namespace: default
+
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      run: flask-app
+
+  template:
+    metadata:
+      labels:
+        run: flask-app
+
+    spec:
+      containers:
+      - image: mjbright/flask-web:v2
+        imagePullPolicy: Always
+        name: flask-app
+        ports:
+        - containerPort: 5000
+
