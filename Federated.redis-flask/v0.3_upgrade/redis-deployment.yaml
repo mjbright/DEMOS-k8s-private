@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: redis
+  name: redis
+
+spec:
+  selector:
+    matchLabels:
+      run: redis
+
+  template:
+    metadata:
+      labels:
+        run: redis
+
+    spec:
+      containers:
+      - image: redis:latest
+        name: redis
+        ports:
+        - containerPort: 6379
