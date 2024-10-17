@@ -11,7 +11,7 @@ rm -rf v0.5_helm_imported
 helm list | grep ^flask-redis && helm uninstall flask-redis
 
 helm create flask-redis
-rm -fr flask-redis/templates/*
+rm -fr flask-redis/templates/*.yaml
 
 helm list -A
 
