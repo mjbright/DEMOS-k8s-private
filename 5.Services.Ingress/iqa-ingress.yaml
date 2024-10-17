@@ -55,3 +55,14 @@ spec:
         path: /
         pathType: ImplementationSpecific
 
+  - host: iqa-counter.mjbright-training.eu
+    http:
+      paths:
+      - backend:
+          service:
+            name: flask-webfe 
+            port:
+              number: 5000
+        path: /
+        pathType: ImplementationSpecific
+
