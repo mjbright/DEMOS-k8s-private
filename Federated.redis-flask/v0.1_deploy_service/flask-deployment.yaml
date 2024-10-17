@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: flask-app
-  name: flask-app
+    app: flask-webfe
+  name: flask-webfe
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-app
+      app: flask-webfe
 
   template:
     metadata:
       labels:
-        app: flask-app
+        app: flask-webfe
 
     spec:
       containers:
       - image: mjbright/flask-web:v1
         imagePullPolicy: Always
-        name: flask-app
+        name: flask-webfe
         ports:
         - containerPort: 5000
 
