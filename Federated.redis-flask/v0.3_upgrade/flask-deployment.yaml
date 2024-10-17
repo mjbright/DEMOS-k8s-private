@@ -6,7 +6,7 @@ metadata:
   name: flask-webfe
 
 spec:
-  replicas: 8
+  replicas: 4
   selector:
     matchLabels:
       app: flask-webfe
