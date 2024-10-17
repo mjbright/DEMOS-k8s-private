@@ -3,19 +3,14 @@ kind: Service
 metadata:
   name: flask-app
   labels:
-    run: flask-app
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-      meta.helm.sh/release-name: v0.4
-      meta.helm.sh/release-namespace: default
+    app: flask-app
 
 spec:
+  type: LoadBalancer
   ports:
   - port: 5000
     protocol: TCP
     targetPort: 5000
+
   selector:
-    run: flask-app
-  type: LoadBalancer
-status:
-  loadBalancer: {}
+    app: flask-app

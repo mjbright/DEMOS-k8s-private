@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: flask-app
   labels:
-    run: flask-app
+    app: flask-app
 
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      run: flask-app
+      app: flask-app
 
   template:
     metadata:
       labels:
-        run: flask-app
+        app: flask-app
 
     spec:
       containers:

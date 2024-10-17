@@ -3,8 +3,9 @@ kind: Deployment
 metadata:
   name: flask-app
   labels:
-    run: flask-app
+    app: flask-app
     app.kubernetes.io/managed-by: Helm
+
   annotations:
       meta.helm.sh/release-name: v0.4
       meta.helm.sh/release-namespace: default
@@ -13,12 +14,12 @@ spec:
   replicas: 8
   selector:
     matchLabels:
-      run: flask-app
+      app: flask-app
 
   template:
     metadata:
       labels:
-        run: flask-app
+        app: flask-app
 
     spec:
       containers:

@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: flask-app
+    app: flask-app
   name: flask-app
 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: flask-app
+      app: flask-app
 
   template:
     metadata:
       labels:
-        run: flask-app
+        app: flask-app
 
     spec:
       containers:

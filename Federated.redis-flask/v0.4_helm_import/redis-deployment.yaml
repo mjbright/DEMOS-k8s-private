@@ -3,8 +3,9 @@ kind: Deployment
 metadata:
   name: redis
   labels:
-    run: redis
+    app: redis
     app.kubernetes.io/managed-by: Helm
+
   annotations:
       meta.helm.sh/release-name: v0.4
       meta.helm.sh/release-namespace: default
@@ -12,12 +13,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      run: redis
+      app: redis
 
   template:
     metadata:
       labels:
-        run: redis
+        app: redis
 
     spec:
       containers:
