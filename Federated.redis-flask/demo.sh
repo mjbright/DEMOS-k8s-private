@@ -29,7 +29,10 @@ RUN_STEP() {
 
 if [ -z "$STEP" ]; then
     DEMO_HEADER "Running all demo steps ..."
-    for STEP in $(  ls -1d v0.* | sort ); do
+
+    #for STEP in $(  ls -1d LFS458_* | sort -n ); do ; done
+    for STEP in $( ls -1d LFS458_* | sed 's/LFS458_//' | sort -n ); do
+        STEP=LFS458_$STEP
         RUN_STEP $STEP
     done
 else
