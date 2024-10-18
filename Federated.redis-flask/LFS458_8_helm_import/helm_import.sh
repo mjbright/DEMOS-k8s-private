@@ -39,7 +39,7 @@ version: 0.1.0
 
 # This is the version number of the application being deployed.
 # This version number should be incremented each time you make changes to the application.
-appVersion: "0.4.1"
+appVersion: "v8.0"
 
 EOF
 
