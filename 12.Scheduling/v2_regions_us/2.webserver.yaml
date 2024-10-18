@@ -32,41 +32,5 @@ spec:
                 operator: In
                 values:
                 - redis-server
-            topologyKey: zone
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: redis-server
-  name: redis-server
-
-spec:
-  replicas: 4
-  selector:
-    matchLabels:
-      app: redis-server
-
-  template:
-    metadata:
-      labels:
-        app: redis-server
-
-    spec:
-      containers:
-      - image: redis
-        name:  redis
-    
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - redis-server
-            topologyKey: zone
- 
+            topologyKey: kubernetes.io/hostname
 
