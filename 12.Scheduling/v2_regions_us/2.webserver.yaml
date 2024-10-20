@@ -1,0 +1,36 @@
+# Attempt to schedule 1 web-server co-located with 1 redis-server on each Node
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-server
+  name: web-server
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: web-server
+
+  template:
+    metadata:
+      labels:
+        app: web-server
+
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:1
+        name: k8s-demo
+    
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - redis-server
+            topologyKey: kubernetes.io/hostname
+

@@ -1,0 +1,108 @@
+---
+# Source: flask-redis/templates/flask-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-webfe
+  labels:
+    app: flask-webfe
+    app.kubernetes.io/managed-by: Helm
+
+  annotations:
+      meta.helm.sh/release-name: v8.0
+      meta.helm.sh/release-namespace: default
+
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+
+  selector:
+    app: flask-webfe
+---
+# Source: flask-redis/templates/redis-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+      meta.helm.sh/release-name: v8.0
+      meta.helm.sh/release-namespace: default
+
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 6379
+    protocol: TCP
+    targetPort: 6379
+
+  selector:
+    app: redis
+---
+# Source: flask-redis/templates/flask-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-webfe
+  labels:
+    app: flask-webfe
+    app.kubernetes.io/managed-by: Helm
+
+  annotations:
+      meta.helm.sh/release-name: v8.0
+      meta.helm.sh/release-namespace: default
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-webfe
+
+  template:
+    metadata:
+      labels:
+        app: flask-webfe
+
+    spec:
+      containers:
+      - image: mjbright/flask-web:v2
+        imagePullPolicy: Always
+        name: flask-webfe
+        ports:
+        - containerPort: 5000
+---
+# Source: flask-redis/templates/redis-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: redis
+    app.kubernetes.io/managed-by: Helm
+
+  annotations:
+      meta.helm.sh/release-name: v8.0
+      meta.helm.sh/release-namespace: default
+
+spec:
+  selector:
+    matchLabels:
+      app: redis
+
+  template:
+    metadata:
+      labels:
+        app: redis
+
+    spec:
+      containers:
+      - image: redis:latest
+        name: redis
+        ports:
+        - containerPort: 6379
+

@@ -1,0 +1,68 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: iqa-mjbright-ingress
+
+  namespace: default
+spec:
+
+  ingressClassName: "nginx"
+
+  rules:
+
+  - host: iqa-quiz.mjbright-training.eu
+    http:
+      paths:
+      - backend:
+          service:
+            name: quiz
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+
+  - host: iqa-quiz.mjbright-training.eu
+    http:
+      paths:
+      - backend:
+          service:
+            name: vote
+            port:
+              number: 80
+        path: /vote
+        pathType: ImplementationSpecific
+
+  - host: iqa-vote.mjbright-training.eu
+    http:
+      paths:
+      - backend:
+          service:
+            name: vote
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+
+  - host: iqa-web.mjbright-training.eu
+    http:
+      paths:
+      - backend:
+          service:
+            #name: web
+            name: web
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+
+  - host: iqa-counter.mjbright-training.eu
+    http:
+      paths:
+      - backend:
+          service:
+            name: flask-webfe 
+            port:
+              number: 5000
+        path: /
+        pathType: ImplementationSpecific
+

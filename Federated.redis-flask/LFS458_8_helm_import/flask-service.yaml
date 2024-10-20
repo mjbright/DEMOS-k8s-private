@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-webfe
+  labels:
+    app: flask-webfe
+    app.kubernetes.io/managed-by: Helm
+
+  annotations:
+      meta.helm.sh/release-name: v8.0
+      meta.helm.sh/release-namespace: default
+
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+
+  selector:
+    app: flask-webfe

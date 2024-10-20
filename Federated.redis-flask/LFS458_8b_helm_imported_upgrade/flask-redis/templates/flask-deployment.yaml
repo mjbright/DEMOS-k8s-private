@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-webfe
+  labels:
+    app: flask-webfe
+    app.kubernetes.io/managed-by: Helm
+
+  annotations:
+      meta.helm.sh/release-name: v8.0
+      meta.helm.sh/release-namespace: default
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-webfe
+
+  template:
+    metadata:
+      labels:
+        app: flask-webfe
+
+    spec:
+      containers:
+      - image: mjbright/flask-web:v2
+        imagePullPolicy: Always
+        name: flask-webfe
+        ports:
+        - containerPort: 5000
+

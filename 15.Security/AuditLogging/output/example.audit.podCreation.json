@@ -1,0 +1,37 @@
+{
+  "kind": "Event",
+  "apiVersion": "audit.k8s.io/v1",
+  "level": "Metadata",
+  "auditID": "4d433ca0-40d3-4307-b1bd-0a24001b2893",
+  "stage": "ResponseComplete",
+  "requestURI": "/api/v1/namespaces/default/pods?fieldManager=kubectl-run",
+  "verb": "create",
+  "user": {
+    "username": "kubernetes-admin",
+    "groups": [
+      "kubeadm:cluster-admins",
+      "system:authenticated"
+    ]
+  },
+  "sourceIPs": [
+    "10.0.137.168"
+  ],
+  "userAgent": "kubectl/v1.31.1 (linux/amd64) kubernetes/948afe5",
+  "objectRef": {
+    "resource": "pods",
+    "namespace": "default",
+    "name": "audit-test-pod",
+    "apiVersion": "v1"
+  },
+  "responseStatus": {
+    "metadata": {},
+    "code": 201
+  },
+  "requestReceivedTimestamp": "2024-10-18T15:15:48.594648Z",
+  "stageTimestamp": "2024-10-18T15:15:48.608955Z",
+  "annotations": {
+    "authorization.k8s.io/decision": "allow",
+    "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"kubeadm:cluster-admins\" of ClusterRole \"cluster-admin\" to Group \"kubeadm:cluster-admins\"",
+    "pod-security.kubernetes.io/enforce-policy": "privileged:latest"
+  }
+}

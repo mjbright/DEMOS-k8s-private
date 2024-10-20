@@ -1,0 +1,10 @@
+# Default values for flask-redis.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# 2 more replicas:
+replicaCount: 4
+
+# v3 image:
+image: mjbright/flask-web:v3
+
