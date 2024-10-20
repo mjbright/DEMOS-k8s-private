@@ -2,6 +2,17 @@
 # kubectl -n kube-system exec -it etcd-cp -- sh -c "\
 #     ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl endpoint health"
 
+# cat <<EOF
+# TODO: set etcdctl timeouts - try each of these (with a bad endpoint ip)
+#       --command-timeout=5s          timeout for short running command (excluding dial timeout)
+#       --dial-timeout=2s               dial timeout for client connections
+#       --keepalive-timeout=6s            keepalive timeout for client connections
+# EOF
+
+ETCDCTL_TIMEOUTS="--command-timeout=2s --dial-timeout=2s --keepalive-timeout=2s"
+ETCDCTL_ENV="ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key"
+#return
+
 # Function to simplify use of etcdctl from cp Node
 # - set POD to the Pod name for etcd on a Node:
 # - then try one of the commands:
@@ -12,12 +23,18 @@
 #      etcdctl endpoint status -w table
 #
 function etcdctl {
+    [ -z "$1" ]     && set -- endpoint status -w table
+
+    echo "Running on $(hostname) [$(hostname -i)]"
     # SET this value as appropriate:
     POD=etcd-cp
-    #POD=etcd-secondcp
-    #POD=etcd-thirdcp
+    case $(hostname) in
+                  cp) POD=etcd-cp;;
+        secondcp|cp2) POD=etcd-secondcp;;
+         thirdcp|cp3) POD=etcd-thirdcp;;
+    esac
 
-    kubectl -n kube-system exec -it $POD -- sh -c "ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl $*"
+    kubectl --request-timeout='1' -n kube-system exec -it $POD -- sh -c "$ETCDCTL_ENV etcdctl $ETCDCTL_TIMEOUTS $*"
 }
 
 # Function to simplify use of etcdctl from cp Node showing all endpoints status:
@@ -31,18 +48,67 @@ function etcdctl {
 #      etcdctl_all endpoint status -w table
 #
 function etcdctl_all {
-    # SET this value as appropriate:
+    LOOP=0
+    [ "$1" = "-x" ] && { shift; set -x; }
+    [ "$1" = "-l" ] && { shift; LOOP=1; }
+    [ -z "$1" ]     && set -- endpoint status -w table
+
     POD=etcd-cp
-    #POD=etcd-secondcp
-    #POD=etcd-thirdcp
+    case $(hostname) in
+                  cp) POD=etcd-cp;;
+        secondcp|cp2) POD=etcd-secondcp;;
+         thirdcp|cp3) POD=etcd-thirdcp;;
+    esac
 
     # SET this value as appropriate: use the private IP addresses of all your cp Nodes:
-    ENDPOINTS="10.0.142.211:2379,10.0.130.34:2379,10.0.132.87:2379"
+    ENDPOINTS="$( kubectl -n kube-system get pods -l component=etcd -o wide -o custom-columns=IP:.status.podIP --no-headers | sed -e 's/$/:2379/' )"
+    ENDPOINTS=$( echo $ENDPOINTS | sed 's/ /,/g' )
+    #ENDPOINTS="10.0.142.211:2379,10.0.130.34:2379,10.0.132.87:2379"
 
-    kubectl -n kube-system exec -it $POD -- sh -c "ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl --endpoints $ENDPOINTS $*"
+    [ $LOOP -ne 0 ] && { etcdctl_all_LOOP $*; return; }
+
+    echo "Running on $(hostname) [$(hostname -i)]"
+    #set -x
+    kubectl --request-timeout='1' -n kube-system exec -it $POD -- sh -c "$ETCDCTL_ENV etcdctl --endpoints $ENDPOINTS $ETCDCTL_TIMEOUTS $*"
+    set +x
 }
 
+function etcdctl_getOP {
+    [ -z "$POD" ] && POD=etcd-cp
 
+    OP=$( kubectl --request-timeout='1' -n kube-system exec -it $POD -- sh -c "$ETCDCTL_ENV etcdctl --endpoints $ENDPOINTS $ETCDCTL_TIMEOUTS endpoint status -w table" 2>/dev/null | cut -c1-80 | grep -v "context deadline" | grep -v '"warn","ts":' )
 
+    if [ "$1" = "-v" ]; then
+        kubectl --request-timeout='1' -n kube-system exec -it $POD -- sh -c "$ETCDCTL_ENV etcdctl --endpoints $ENDPOINTS $ETCDCTL_TIMEOUTS endpoint status -w table 2>/dev/null"
+    fi
+}
+
+function etcdctl_all_LOOP {
+    # SET this value as appropriate: use the private IP addresses of all your cp Nodes:
+    ENDPOINTS="$( kubectl -n kube-system get pods -l component=etcd -o wide -o custom-columns=IP:.status.podIP --no-headers | sed -e 's/$/:2379/' )"
+    ENDPOINTS=$( echo $ENDPOINTS | sed 's/ /,/g' )
+
+    echo "-- [loop0] $(date) Running on $(hostname) [$(hostname -i)] -----------------------------"
+    etcdctl_getOP -v
+    LAST_OP=$OP
+
+    let LOOP=0
+    while true; do
+        let LOOP=LOOP+1
+        etcdctl_getOP
+        if [ "$OP" != "$LAST_OP" ]; then
+            echo "-- [loop$LOOP] $(date) Running on $(hostname) [$(hostname -i)] -----------------------------"
+            etcdctl_getOP -v
+            #### echo "OP='$OP'"
+            #### echo $OP | cksum
+            #### echo "LO='$LAST_OP'"
+            #### echo $LAST_OP | cksum
+            LAST_OP=$OP
+        fi
+        
+        sleep 2
+    done
+    set +x; return
+}
 
 
