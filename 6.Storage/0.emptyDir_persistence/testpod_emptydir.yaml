@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: testpod
+  name: testpod
+
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - 'echo "(re)STARTED at $(date)" | tee -a /var/log/starts.log; sleep 10'
+    image: alpine
+    name: testpod
+
+    volumeMounts:
+    - name: ed
+      mountPath: /var/log
+
+  volumes:
+  - emptyDir: {}
+    name: ed
+    
+
+
