@@ -15,6 +15,10 @@ Build best "command-line" demo, document as optional lab
 
 Download etcd tar, ectdutl is included:
 
+Note: etcdctl is for network access
+Note: etcdutl is for local access to data
+      https://github.com/etcd-io/etcd/blob/main/etcdutl/README.md
+
 ```
   tar tf ~/src/k8s-scenarios/ephemeral-containers/etcd-v3.5.2-linux-amd64.tar.gz | grep etcdutl
 
