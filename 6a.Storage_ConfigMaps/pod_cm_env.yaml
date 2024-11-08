@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod
+  labels:
+    run: testpod
+
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    #- 'while true; do echo "$(date): testkey1=$testkey1,testkey2=$testkey2"; sleep 5; done'
+    - 'echo "$(date): testkey1=$testkey1,testkey2=$testkey2"; sleep 10'
+    image: alpine
+    name: testpod
+
+    envFrom:
+    - configMapRef:
+        name: cm1
+      prefix: test
+
