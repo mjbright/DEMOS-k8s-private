@@ -14,22 +14,27 @@ spec:
   initContainers:
   - image: alpine
     name:  init1
-    command: ['/bin/sh', '-c', 'sleep 5; /bin/echo init1 started > /vol/empty1/init1.start']
+    command: ['/bin/sh', '-c', 'sleep 2; /bin/echo init1 started >> /vol/empty1/init1.start']
     volumeMounts:
     - name: empty1
       mountPath: /vol/empty1
+    # Default: restartPolicy not present
+    # Override to make this init container a sidecar container which repeatedly runs
+    restartPolicy: Always
 
   - image: alpine
     name:  init2
-    command: ['/bin/sh', '-c', 'sleep 5; /bin/echo init2 started > /vol/empty1/init2.start']
+    command: ['/bin/sh', '-c', 'sleep 2; /bin/echo init2 started >> /vol/empty1/init2.start']
     volumeMounts:
     - name: empty1
       mountPath: /vol/empty1
+    # Default: restartPolicy not present
+    # Standard init container - runs once and exits
   
   containers:
   - image: alpine
     name: singlepod
-    command: ['/bin/sh', '-c', 'cat /vol/init2/init1.start /vol/init2/init2.start']
+    command: ['/bin/sh', '-c', 'while true; do find /vol/init2; ls -al /vol/init2/; sleep 4; done']
     volumeMounts:
     - name: empty1
       mountPath: /vol/init2
