@@ -6,10 +6,16 @@ spec:
   failurePolicy: Fail
   matchConstraints:
     resourceRules:
+    # Rule1: Prevents creation of deployment with too many Pods
     - apiGroups:   ["apps"]
       apiVersions: ["v1"]
       operations:  ["CREATE", "UPDATE"]
       resources:   ["deployments"]
+    # Rule2: Prevents scaling of deployment with too many Pods (see "deployments/scale" in resources)
+    - apiGroups:   ["apps"]
+      apiVersions: ["v1"]
+      operations:  ["CREATE", "UPDATE"]
+      resources:   ["deployments/scale"]
   validations:
     - expression: "object.spec.replicas <= 5"
 ---
