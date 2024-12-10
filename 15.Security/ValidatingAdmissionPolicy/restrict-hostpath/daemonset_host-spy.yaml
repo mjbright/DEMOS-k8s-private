@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: host-spy
+
+spec:
+  selector:
+    matchLabels:
+      app: host-spy
+
+  template:
+    metadata:
+      labels:
+        app: host-spy
+
+    spec:
+      containers:
+      - name: host-spy
+        image: mjbright/k8s-demo:alpine1
+        volumeMounts:
+          - name: logs-vol
+            mountPath: /log
+
+      volumes:
+      - name: logs-vol
+        hostPath:
+          path: /var/log
+
