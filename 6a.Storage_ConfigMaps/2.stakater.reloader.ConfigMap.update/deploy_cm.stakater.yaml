@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-cm
+  labels:
+    app: test-cm
+  annotations:
+    reloader.stakater.com/auto: "true"
+
+spec:
+  selector:
+    matchLabels:
+      app: test-cm
+
+  template:
+    metadata:
+      labels:
+        app: test-cm
+   
+    spec:
+      containers:
+
+      - image: mjbright/k8s-demo:alpine1
+        name: test-cm-looper
+        command: ['/bin/sh', '-c', 'while true; do echo "LOOPER $(date): ENV(key1): $( env | grep -i key1 )    FILE(/mnt/cm1/key1) contains: $(cat /mnt/cm/key1)"; sleep 5; done']
+
+        envFrom:
+        - configMapRef:
+            name: cm1
+
+        volumeMounts:
+        - name: cm-vol
+          mountPath: /mnt/cm
+
+      volumes:
+      - name: cm-vol
+        configMap:
+          name: cm1
+
+

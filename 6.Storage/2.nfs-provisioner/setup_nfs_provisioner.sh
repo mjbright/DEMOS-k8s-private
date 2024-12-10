@@ -12,11 +12,16 @@ grep /mnt/nfs-vol /etc/exports ||
         sudo tee -a /etc/exports
         sudo exportfs -ra
     }
-showmount -e $CP
 
+# Assume CP is k8scp (LFS458), else cp (LFD459):
 CP="k8scp"
+grep " $CP" /etc/hosts || {
+    CP="cp"
+}
 WO="worker"
 CP_IP=$( hostname -i )
+
+showmount -e $CP
 
 KEY=~/.ssh/t-key.pem
 KEY=~/.ssh/student2022_rsa
