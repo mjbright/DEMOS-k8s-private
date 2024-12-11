@@ -1,0 +1,24 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: ro-plus-emptydir
+  name: ro-plus-emptydir
+spec:
+  containers:
+  - image: alpine
+    name: ro-plus-emptydir
+    command: ["/bin/sleep", "36000"]
+
+    securityContext:
+      readOnlyRootFilesystem: true
+
+    volumeMounts:
+    - name: edir
+      mountPath: /logs.rw
+
+  volumes:
+  - emptyDir: {}
+    name:     edir
+        
