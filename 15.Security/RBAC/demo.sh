@@ -56,55 +56,61 @@ ENABLE_PODS_READ_ALL_NS() {
     RUN kubectl --kubeconfig /home/student/.kube/config.jim get pods
 }
 
+# Create user Namespaces, Roles & Role bindings:
+ENABLE_PODS_CREATION() {
+    DEMO_HEADER "CREATE user namespaces"
+    RUN kubectl create ns joe
+    RUN kubectl create ns jim
+
+    # STEP_HEADER "Check users can get pods"
+    # RUN kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
+    # RUN kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
+
+    DEMO_HEADER "CHECK ACCESS:"  " Check new users can(NOT) create pods"
+    RUN kubectl        --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl        --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl -n joe --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl -n jim --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
+    RUN kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
+
+    DEMO_HEADER "ENABLE ACCESS:"  " Allow new users to create pods (only in their own namespace)"
+    RUN kubectl -n joe create role create-pods --resource pod,deploy,ds,rs,sts,job,cronjob --verb create,update,delete
+    RUN kubectl -n jim create role create-pods --resource pod,deploy,ds,rs,sts,job,cronjob --verb create,update,delete
+    RUN kubectl create rolebinding create-pods-jim --role create-pods -n jim --user jim
+    RUN kubectl create rolebinding create-pods-joe --role create-pods -n joe --user joe
+
+    # Can now create Pods in respective namespaces:
+    DEMO_HEADER "CHECK ACCESS:"  " Check new users can now create pods (in their own namespace)"
+    RUN kubectl -n joe --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
+    RUN kubectl -n jim --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
+
+    # Cannot  create Pods in other namespaces:
+    DEMO_HEADER "CHECK ACCESS:"  " Check new users can still NOT create pods (in other namespaces)"
+    RUN kubectl -n jim --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl -n joe --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl        --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
+    RUN kubectl        --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
+}
+
 # -- Main: -----------------------------------------------------------------------------------
 
-CLEANUP
-CREATE_USERS
-ls -al ~/.kube/config.{jim,joe}
-
-ENABLE_NODES
-ENABLE_PODS_READ_ALL_NS
+#CLEANUP
+#CREATE_USERS
+#echo;echo; echo;echo
+#ls -al ~/.kube/config.{jim,joe}
+#
+#ENABLE_NODES
+#ENABLE_PODS_READ_ALL_NS
+ENABLE_PODS_CREATION
 exit
 
 
-SECTION1 section1
-SECTION2 section2
-
-    STEP_HEADER "Step1:" " Hello world"
-    STEP_HEADER "Step2: Hello world"
-
-RUN ls
-RUN_PRESS ls
 
 
-# Create user Namespaces, Roles & Role bindings:
-  kubectl create ns joe
-  kubectl create ns jim
-  kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
-  kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
 
-  kubectl        --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
-  kubectl        --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
-  kubectl -n joe --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
-  kubectl -n jim --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
-
-  kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
-  kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
-
-  kubectl -n joe create role create-pods --resource pod,deploy,ds,rs,sts,job,cronjob --verb create,update,delete
-  kubectl -n jim create role create-pods --resource pod,deploy,ds,rs,sts,job,cronjob --verb create,update,delete
-  kubectl create rolebinding create-pods-jim --role create-pods -n jim --user jim
-  kubectl create rolebinding create-pods-joe --role create-pods -n joe --user joe
-
-  # Can now create Pods in respective namespaces:
-  kubectl -n joe --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
-  kubectl -n jim --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
-
-  # Cannot  create Pods in other namespaces:
-  kubectl -n jim --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
-  kubectl -n joe --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
-  kubectl        --kubeconfig /home/student/.kube/config.joe run testp --image alpine --restart Never -- sleep 1
-  kubectl        --kubeconfig /home/student/.kube/config.jim run testp --image alpine --restart Never -- sleep 1
 
 ## TO CHECK ================================================================================
 #kubectl create rolebinding read-pods --role read-pods --user jim -n jim
