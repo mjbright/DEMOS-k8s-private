@@ -1,4 +1,51 @@
 
+# PLAN 2024-Dec-11
+
+## New ideas:
+- extend RBAC demo to groups (also copy create_user_kubeconfig.sh locally)
+- capture/archive/filter events => Grafana Alloy? Prometheus event collector? other ...
+
+## CKAD Demo plan (optional demos for each module):
+
+0. Provide shared practice cluster (Guacamole access)
+1.K101, Docker, YAML
+2.Architecture_etcd
+4.Controllers
+4.Controllers.Batch
+4.Controllers.HPA
+4.Controllers.UPGRADES
+
+## CKA  Demo plan (optional demos for each module):
+
+0. Provide shared practice cluster (Guacamole access)
+1.K101, Docker, YAML
+3.Architecture_etcd
+4.Controllers
+4.Controllers.Batch
+4.Controllers.HPA
+4.Controllers.UPGRADES
+
+12.Scheduling
+14.CRDs
+15.Security
+16.HA
+
+5.Services.Ingress
+5.Services.Mesh.Linkerd
+5.Services.Services
+6.Storage
+6a.Storage_ConfigMaps
+7.Helm
+7b.Kustomize
+
+?? Federated.redis-flask
+?? LFD459_Helpers
+?? LFS458_Helpers
+?? N.Misc
+?? N.Misc.scripts
+?? N.yaml
+?? ResourceManagement.TODO
+
 # Release related demos
 
 - Start with Kubernetes 1.31 features
