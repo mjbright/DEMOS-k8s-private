@@ -5,17 +5,20 @@ cd $(dirname $0)
 echo "Sourcing ../../demos.rc"
 source ../../demos.rc
 
+#CREATE_KUBECONFIG_SH=~/src/mjbright.k8s-scenarios/scripts/create_user_kubeconfig.sh
+CREATE_KUBECONFIG_SH=../../scripts/create_user_kubeconfig.sh
+
 # -- Func: -----------------------------------------------------------------------------------
 
 CLEANUP() {
-  ./cleanup.sh
+    ./cleanup.sh
 }
 
 # -- Create 2 users (in 2 groups): -----------------------------------------------------------
 CREATE_USERS() {
     DEMO_HEADER "CREATE USERS:"  " Creating new 'users' jim & joe"
-    ~/src/mjbright.k8s-scenarios/scripts/create_user_kubeconfig.sh jim -g dev
-    ~/src/mjbright.k8s-scenarios/scripts/create_user_kubeconfig.sh joe -g admin
+    $CREATE_KUBECONFIG_SH jim -g dev
+    $CREATE_KUBECONFIG_SH joe -g admin
 }
 
 # -- ENABLE kubectl get nodes: ---------------------------------------------------------------
