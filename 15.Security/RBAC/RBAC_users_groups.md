@@ -1,42 +1,66 @@
 
-# Create 2 users (in 2 groups):
-
+# -- Create 2 users (in 2 groups): -----------------------------------------------------------
   ~/src/mjbright.k8s-scenarios/scripts/create_user_kubeconfig.sh jim -g dev
   ~/src/mjbright.k8s-scenarios/scripts/create_user_kubeconfig.sh joe -g admin
 
-# Fail to get Nodes:
+# -- ENABLE kubectl get nodes: ---------------------------------------------------------------
+  kubectl --kubeconfig /home/student/.kube/config.joe get nodes # FAIL !!
+  kubectl --kubeconfig /home/student/.kube/config.jim get nodes # FAIL !!
+
+  # Create ClusterRole & ClusterRoleBindings
+  kubectl create clusterrole cluster-read --resource node,namespace,persistentvolumes --verb get,watch,list
+
+  # Note: --user joe,jim treated as "joe,jim" !!
+  kubectl create clusterrolebinding crb-cluster-read --clusterrole cluster-read --user joe --user jim
+
   kubectl --kubeconfig /home/student/.kube/config.joe get nodes
   kubectl --kubeconfig /home/student/.kube/config.jim get nodes
 
-# Create ClusterRole & ClusterRoleBindings
+# -- ENABLE kubectl get pods: ----------------------------------------------------------------
+  kubectl --kubeconfig /home/student/.kube/config.joe get pods # FAIL !!
+  kubectl --kubeconfig /home/student/.kube/config.jim get pods # FAIL !!
 
-# kubectl delete clusterrolebinding crb-cluster-read
-# kubectl delete clusterrole        cluster-read
+  kubectl create clusterrole cr-reads --resource pod,deploy,ds,rs,sts,job,cronjob --verb get,watch,list
+  kubectl create clusterrolebinding crb-reads --clusterrole cr-reads --user joe --user jim
 
-kubectl create clusterrole cluster-read --resource node,namespace,persistentvolumes --verb get,watch,list
+  kubectl --kubeconfig /home/student/.kube/config.joe get pods
+  kubectl --kubeconfig /home/student/.kube/config.jim get pods
 
-# Note: --user joe,jim treated as "joe,jim" !!
-kubectl create clusterrolebinding crb-cluster-read --clusterrole cluster-read --user joe --user jim
+# Create user Namespaces, Roles & Role bindings:
+  kubectl create ns joe
+  kubectl create ns jim
+  kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
+  kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
 
-# Test get Nodes:
+  kubectl        --kubeconfig /home/student/.kube/config.joe run pod alpine --rm -- sleep 1
+  kubectl        --kubeconfig /home/student/.kube/config.jim run pod alpine --rm -- sleep 1
+  kubectl -n joe --kubeconfig /home/student/.kube/config.joe run pod alpine --rm -- sleep 1
+  kubectl -n jim --kubeconfig /home/student/.kube/config.jim run pod alpine --rm -- sleep 1
 
-kubectl --kubeconfig /home/student/.kube/config.joe get nodes
-kubectl --kubeconfig /home/student/.kube/config.jim get nodes
+  kubectl -n joe --kubeconfig /home/student/.kube/config.joe get pods
+  kubectl -n jim --kubeconfig /home/student/.kube/config.jim get pods
 
+  #kubectl create role create-pods --resource pods --verb create,update,delete 
+  #kubectl create role create-pods --resource pods --verb create,update,delete
+  kubectl create role create-pods --resource pod,deploy,ds,rs,sts,job,cronjob --verb create,update,delete
+  kubectl create rolebinding create-pods-jim --role create-pods -n jim --user jim
+  kubectl create rolebinding create-pods-joe --role create-pods -n joe --user joe
 
+  # Can now create Pods in respective namespaces:
+  kubectl -n joe --kubeconfig /home/student/.kube/config.joe run pod alpine --rm -- sleep 1
+  kubectl -n jim --kubeconfig /home/student/.kube/config.jim run pod alpine --rm -- sleep 1
+
+  # Cannot  create Pods in other namespaces:
+  kubectl -n jim --kubeconfig /home/student/.kube/config.joe run pod alpine --rm -- sleep 1
+  kubectl -n joe --kubeconfig /home/student/.kube/config.jim run pod alpine --rm -- sleep 1
+  kubectl        --kubeconfig /home/student/.kube/config.joe run pod alpine --rm -- sleep 1
+  kubectl        --kubeconfig /home/student/.kube/config.jim run pod alpine --rm -- sleep 1
 
 ## TO CHECK ================================================================================
-
-# Create Roles & Role bindings:
-
-kubectl create role read-pods     --resource pods --verb get,watch,list -n joe
-kubectl create role read-pods     --resource pods --verb get,watch,list -n jim
-
-kubectl create rolebinding read-pods --role read-pods --user jim -n jim
+#kubectl create rolebinding read-pods --role read-pods --user jim -n jim
 
 ## TO ADD   ================================================================================
-
-Groups ....
+#Groups ....
 
 
 
