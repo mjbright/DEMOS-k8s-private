@@ -9,11 +9,11 @@ spec:
   containers:
   - image: alpine
     name: ro-plus-emptydir
-    #command: ["sh", "-c", "while true; do mkdir -p /log; date > /log/notpossible.txt; date > /logs.rw/notpossible.txt; ls -al /log/; ls -al /logs.rw/; sleep 1; done"]
+    #command: ["sh", "-c", "while true; do mkdir -p /log; date > /log/notpossible.txt; date > /logs.rw/possible.txt; ls -al /log/; ls -al /logs.rw/; sleep 1; done"]
     command: 
     - sh
     - -c
-    - while true; do mkdir -p /log; date > /log/notpossible.txt; date > /logs.rw/notpossible.txt; ls -al /log/; ls -al /logs.rw/; sleep 1; done
+    - while true; do mkdir -p /log; date > /log/notpossible.txt; date > /logs.rw/possible.txt; ls -al /log/; ls -al /logs.rw/; sleep 1; done
 
     securityContext:
       readOnlyRootFilesystem: true

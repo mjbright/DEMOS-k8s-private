@@ -97,13 +97,13 @@ ENABLE_PODS_CREATION() {
 
 # -- Main: -----------------------------------------------------------------------------------
 
-#CLEANUP
-#CREATE_USERS
-#echo;echo; echo;echo
-#ls -al ~/.kube/config.{jim,joe}
-#
-#ENABLE_NODES
-#ENABLE_PODS_READ_ALL_NS
+CLEANUP
+CREATE_USERS
+echo;echo; echo;echo
+ls -al ~/.kube/config.{jim,joe}
+
+ENABLE_NODES
+ENABLE_PODS_READ_ALL_NS
 ENABLE_PODS_CREATION
 exit
 

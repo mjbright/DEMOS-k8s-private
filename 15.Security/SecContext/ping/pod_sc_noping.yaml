@@ -10,6 +10,7 @@ spec:
   - image: alpine
     name: noping
     command: ["/bin/sleep", "36000"]
+
     securityContext:
       capabilities:
         drop: ["NET_RAW"]
