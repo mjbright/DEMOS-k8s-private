@@ -116,7 +116,7 @@ EOF
         cp -a $PWD/kubeconfig.${USER_NAME} $OP_FILE
     fi
 
-    echo; echo "---- Temp files:"
+    echo; echo "---- Temp files: [$TMP_DIR/]"
     ls -al $TMP_DIR/
     echo; echo "---- User Kubeconfig file:"
     ls -al $OP_FILE

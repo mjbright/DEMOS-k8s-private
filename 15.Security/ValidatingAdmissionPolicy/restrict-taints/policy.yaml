@@ -1,0 +1,47 @@
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: reject-taints-junior-admin
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    matchPolicy: Equivalent
+    namespaceSelector: {}
+    objectSelector: {}
+    resourceRules:
+    - apiGroups:   [""]
+      apiVersions: ["v1"]
+      operations:  ["CREATE", "UPDATE", "DELETE"]
+      resources:   ["nodes"]
+      scope: '*'
+  matchConditions:
+    - name: 'apply-to-junior-admin-group'
+      expression: '"junior-admin" in request.userInfo.groups' # Allow requests made by non-node users.
+  validations:
+  - expression: '!has(object.spec.taints)'
+    message: User doesn't have permissions to set taints
+  variables: null
+
+# kubectl taint node cp KEY=VALUE:NoSchedule --dry-run=client -o yaml | grep -A10 -i spec:
+# spec:
+#   podCIDR: 192.168.0.0/24
+#   podCIDRs:
+#   - 192.168.0.0/24
+#   taints:
+#   - effect: NoSchedule
+#     key: KEY
+#     value: VALUE
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: demo-reject-taints-junior-admin
+spec:
+  policyName: reject-taints-junior-admin
+  validationActions: [Deny]
+  #matchResources:
+  #  namespaceSelector:
+  #    matchLabels:
+  #      environment: test
