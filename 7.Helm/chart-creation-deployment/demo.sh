@@ -2,6 +2,8 @@
 
 # Adapted from lab at: https://jruels.github.io/az-core-k8s/labs/helm/
 
+# TODO: extend scenario? (as above lab) => rollback, then history
+
 cd $(dirname $0)
 
 # TODO: Use app (helm-demo) and release (demo-release) variables ...
@@ -30,7 +32,7 @@ CLEANUP() {
     helm -n helm-demo ls | grep helm-demo >/dev/null 2>&1 && helm -n helm-demo uninstall helm-demo
     #helm-demo uninstall -n helm-demo helm-demo >/dev/null 2>&1
     #helm -n helm-demo ls helm-demo && helm -n helm-demo uninstall helm-demo
-    rm -rf helm-demo/
+    rm -rf demo-app/ helm-demo/
 }
 
 RUN helm version
@@ -111,6 +113,7 @@ EOF
     RUN helm lint helm-demo
 
     RUN helm package helm-demo
+    ls -al helm-app-0.2.0.tgz
 }
 
 CLEANUP
@@ -120,4 +123,4 @@ PACKAGE_CHART_v020
 UPDATE_CHART helm-app-0.2.0.tgz
 SET_SVC_IP helm-demo-helm-app
 RUN curl -s ${SVC_IP}:8080/hello
-
+helm history -n helm-demo helm-demo
