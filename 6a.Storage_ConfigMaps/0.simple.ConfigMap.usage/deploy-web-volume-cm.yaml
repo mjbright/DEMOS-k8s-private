@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-volume-cm
+  labels:
+    app: web-volume-cm
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-volume-cm
+  template:
+    metadata:
+      labels:
+        app: web-volume-cm
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:alpine1
+        name: k8s-demo
+        # /app/demo-binary -l 80 -L 0 -R 0
+        command:
+        - sh
+        - -c 
+        - PICTURE_PATH_BASE=static/img/kubernetes_$(cat /cm-vol/COLOUR) /app/demo-binary -l 80 -L 0 -R 0
+        volumeMounts:
+        - name: cm-vol
+          mountPath: /cm-vol
+      volumes:
+      - name: cm-vol
+        configMap:
+          name: web-config
