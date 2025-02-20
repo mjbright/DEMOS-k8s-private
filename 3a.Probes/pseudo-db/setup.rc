@@ -1,0 +1,12 @@
+
+#set -x
+
+CMD="python3 -m venv ~/.venv/APP"
+echo "-- $CMD"; $CMD
+
+CMD=". ~/.venv/APP/bin/activate"
+echo "-- $CMD"; $CMD
+
+CMD="python3 -m pip install flask"
+echo "-- $CMD"; $CMD
+

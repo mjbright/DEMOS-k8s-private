@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: flask-db
+  labels:
+    app: flask-db
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: flask-db
+
+  template:
+    metadata:
+      labels:
+        app: flask-db
+
+    spec:
+      containers:
+      - image: mjbright/flask_db:0.1
+        imagePullPolicy: Always
+        name:  flask-db
+
+        startupProbe:
+          tcpSocket:
+            port: 9000
+          initialDelaySeconds: 1
+          periodSeconds:       1
+          failureThreshold:    30
+
+        livenessProbe:
+          tcpSocket:
+            port: 9000
+          initialDelaySeconds: 1
+          periodSeconds:       1
+          failureThreshold:    2
+
+        readinessProbe:
+          tcpSocket:
+            port: 9000
+          initialDelaySeconds: 1
+          periodSeconds:       1
+          failureThreshold:    2
+
+

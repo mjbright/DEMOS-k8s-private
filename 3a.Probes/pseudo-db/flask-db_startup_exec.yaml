@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: flask-db
+  labels:
+    app: flask-db
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: flask-db
+
+  template:
+    metadata:
+      labels:
+        app: flask-db
+
+    spec:
+      containers:
+      - image: mjbright/flask_db:0.1
+        imagePullPolicy: Always
+        name:  flask-db
+        #args: ['-s', '4', '-i', '4']
+
+        startupProbe:
+          exec:
+            command:
+            - ls
+            - /tmp/started.txt
+          initialDelaySeconds: 3
+          periodSeconds:       1
+          failureThreshold:    3
+
+        livenessProbe:
+          # Just an example - better option would be httpGet for continual checking
+          exec:
+            command:
+            - ls
+            - /tmp/initialized.txt
+          #initialDelaySeconds: 0
+          initialDelaySeconds: 24
+          periodSeconds:       1
+          #failureThreshold:    30
+          failureThreshold:    6
+
+        readinessProbe:
+          # Just an example - better option would be httpGet for continual checking
+          exec:
+            command:
+            - ls
+            - /tmp/listening.txt
+          initialDelaySeconds: 0
+          periodSeconds:       1
+          failureThreshold:    2
+
+
