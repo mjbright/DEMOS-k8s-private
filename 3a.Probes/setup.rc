@@ -7,6 +7,6 @@ echo "-- $CMD"; $CMD
 CMD=". ~/.venv/APP/bin/activate"
 echo "-- $CMD"; $CMD
 
-CMD="python3 -m pip install flask"
+CMD="python3 -m pip install flask requests"
 echo "-- $CMD"; $CMD
 
