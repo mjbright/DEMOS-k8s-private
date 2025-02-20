@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: flask-fe
+  labels:
+    app: flask-fe
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: flask-fe
+
+  template:
+    metadata:
+      labels:
+        app: flask-fe
+
+    spec:
+      containers:
+      - image: mjbright/flask_fe:0.1
+        imagePullPolicy: Always
+        name:  flask-fe
+        #args: ['-s', '4', '-i', '4']
+
+       # startupProbe:
+       #   httpGet:
+       #     port: 9000
+       #     path: /healthz
+       #   initialDelaySeconds: 1
+       #   periodSeconds:       1
+       #   failureThreshold:    30
+
+        livenessProbe:
+          httpGet:
+            port: 9001
+            path: /healthz
+          #initialDelaySeconds: 0
+          initialDelaySeconds: 24
+          periodSeconds:       1
+          #failureThreshold:    30
+          failureThreshold:    6
+
+        readinessProbe:
+          httpGet:
+            # NOTE: host does not resolve:
+            #   host: flask-db
+            # So use hard-coded ip:
+            host: 10.100.0.10
+            port: 9000
+            path: /readyz
+            #port: 9001
+            #path: /readyz
+          initialDelaySeconds: 0
+          periodSeconds:       1
+          failureThreshold:    2
+
+
