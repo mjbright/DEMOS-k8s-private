@@ -8,6 +8,7 @@ metadata:
 
 spec:
   type: ClusterIP
+  clusterIP: 10.100.0.10
 
   ports:
   - port: 9000
