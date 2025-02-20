@@ -19,6 +19,23 @@ spec:
         app: flask-fe
 
     spec:
+      initContainers:
+      # Included here because we can, checking service exists before progressing ...
+      - name: wait-on-dns
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        - until nslookup flask-db.default.svc.cluster.local; do echo "Waiting for flask-db service to be in cluster DNS"; sleep 2; done
+
+      # Included here because we could (but better to use Probes):
+      #- name: wait-on-wget
+      #  image: busybox
+      #  command:
+      #  - /bin/sh
+      #  - -c
+      #  - until wget -qO - flask-db:9000; do echo "Waiting for flask-db service to respond"; sleep 2; done
+
       containers:
       - image: mjbright/flask_fe:0.1
         imagePullPolicy: Always
