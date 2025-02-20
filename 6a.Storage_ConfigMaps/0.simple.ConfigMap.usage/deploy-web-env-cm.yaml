@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-env-cm
+  labels:
+    app: web-env-cm
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-env-cm
+  template:
+    metadata:
+      labels:
+        app: web-env-cm
+    spec:
+      containers:
+      - image: mjbright/k8s-demo:alpine1
+        name: k8s-demo
+        # /app/demo-binary -l 80 -L 0 -R 0
+        command:
+        - sh
+        - -c 
+        - PICTURE_PATH_BASE=static/img/kubernetes_$(color) /app/demo-binary -l 80 -L 0 -R 0
+        env:
+        - name: color
+          valueFrom:
+            configMapKeyRef:
+              name: web-config
+              key: COLOUR
